@@ -1,0 +1,45 @@
+.footer {
+    display: block;
+    background-color: aqua;
+}
+
+
+#footer a:visited {
+    color: black;
+}
+  
+#footer a:hover {
+    color: #2FCE74;
+}
+  
+.footer-links {
+    width: 30em;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    line-height: 2em;
+    letter-spacing: .05em;
+    list-style: none;
+    text-decoration: none;
+}
+  
+.footer-list {
+    width: 20em;
+}
+  
+.footer-list li {
+    list-style: none;
+    text-decoration: none;
+
+}
+  
+.footer-logo {
+    margin-left: -1em;
+    width: 15em;
+}
+  
+.social-icon {
+    width: 5em;
+    margin: 1.5em 3em 0 1em;
+}
+  

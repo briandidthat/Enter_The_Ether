@@ -1,17 +1,29 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from './containers/Home';
+import Product from './containers/Product';
+import Contact from './containers/Contact';
+import Layout from './hoc/Layout'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          
-   
-        </header>
-      </div>
-    );
-  }
-}
+//layout function with incoming Components as the parameter
+const withLayout = Component => {
+  return (
+    <Layout>
+      <Component />
+    </Layout>
+  );
+};
+
+const App = () => (
+  <Router>
+    <div>
+      <Switch>
+        <Route path="/" exact render={() => withLayout(Home)} />
+        <Route path="/product" exact render={() => withLayout(Product)} />
+        <Route path="/contact" exact render={() => withLayout(Contact)} />
+      </Switch>
+    </div>
+  </Router>
+);
 
 export default App;
