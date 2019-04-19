@@ -11,7 +11,6 @@ code {
     monospace;
 }
 
-
 * {
   font-family: 'Roboto', sans-serif;
 }
@@ -20,6 +19,7 @@ code {
   width: 95%;
   max-width: 70em;
   margin: 0 auto;
+
 }
 
 /* Typography
@@ -89,30 +89,6 @@ p {
   }
 }
 
-/* Buttons */
-.button {
-  display: inline-block;
-  font-size: 1em;
-  text-decoration: none;
-  padding: .5em 1em;
-  border-radius: 3em;
-}
-
-.button-accent {
-  color: white;
-  background-image: linear-gradient(to bottom right, #71F1AD, #3ED279);
-}
-
-.button-accent:hover,
-.button-accent:focus {
-  background: #71F1AD;
-}
-
-.button-white {
-  color: white;
-  border-color: white;
-}
-
 /* Cards */
 .home-cards {
   background-color: #EFEFEF;
@@ -132,7 +108,7 @@ p {
   border-radius: 0.5em;
   width: 18em;
   padding: 1.8em 0;
-  box-shadow: 2px 4px 16px rgba(0, 0, 0, .03);
+  box-shadow: 2px 4px 16px rgba(145, 108, 108, 0.03);
 }
 
 .card img {
