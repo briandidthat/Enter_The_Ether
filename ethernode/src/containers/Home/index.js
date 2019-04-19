@@ -1,17 +1,19 @@
-import React, { Component } from 'react'
-import Card from "../../components/Card";
-import HomeMap from "../../components/Map";
+import React from "react";
+import About from "../../components/HomePage/About"
+import HomeCard from "../../components/HomePage/Card";
+import HomeMap from "../../components/HomePage/Map";
+import Features from "../../components/HomePage/Features"
 
-
-class Home extends Component {
-  render() {
+const Home = () => {
     return (
       <div>
-        <Card />
+        <About />
+        <HomeCard />
         <HomeMap />
+        <Features />
       </div>
     )
-  }
 }
+
 
 export default Home;

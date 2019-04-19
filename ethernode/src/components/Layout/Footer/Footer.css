@@ -12,7 +12,7 @@
     color: #2FCE74;
 }
   
-.footer-links {
+.footerLinks {
     width: 30em;
     display: flex;
     justify-content: space-between;
@@ -22,16 +22,7 @@
     list-style: none;
     text-decoration: none;
 }
-  
-.footer-list {
-    width: 20em;
-}
-  
-.footer-list li {
-    list-style: none;
-    text-decoration: none;
 
-}
   
 .footer-logo {
     margin-left: -1em;

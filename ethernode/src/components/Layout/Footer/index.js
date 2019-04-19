@@ -8,14 +8,18 @@ import discordLogo from "../../../assets/discord-brands.svg";
 import { Container, Row, Col } from "react-grid-system";
 import styles from "./Footer.css";
 
-const Footer = () => (
+
+//functional component for the footer
+const Footer = () => {
+  return (
+  
   <footer>
   <div className={styles.footer}>
     <Container>
       <Row>
         <Col lg={8}>
-            <div className="footer-social-icons">
-              <img src={blackLogo} alt="blacklogo"></img>
+            <div className={styles.footer}>
+              <img src={blackLogo} alt="blacklogo" className="footer-logo"></img>
             </div>
         </Col>
         </Row>
@@ -31,8 +35,7 @@ const Footer = () => (
     </Container>
     </div>
   </footer>
-
-  
-);
+ )
+};
 
 export default Footer;

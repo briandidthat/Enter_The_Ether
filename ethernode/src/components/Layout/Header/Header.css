@@ -1,13 +1,39 @@
-.header {
+/* menu-header
+=========================== */
+header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 1em;
+}
+
+.menu-header {
     background-color: #0e1111;
     justify-content: center;
     padding: 0em 0;
 }
 
+.logo {
+    width: 14em;
+}
+  
 .title {
     font-size: 5em;
     margin-top: 1em;
     letter-spacing: .03em;
     color: white;
     margin-bottom: -.01em;
-  }
+}
+  
+@media (max-width: 55rem) {
+    .title {
+      font-size: 3em;
+      margin-bottom: -.5em
+    }
+}
+  
+.title span {
+    color: #2FCE74;
+}
+  
+

@@ -1,15 +1,18 @@
 import React from "react";
-import styles from './Nav.css'
+import "./Nav.css"
 
 //functional component for the Navbar
 const Nav = () => (
-<div className={styles.nav}>
-    <nav>
-        <a href="index.html">Home</a>  
-        &nbsp;
-        <a href="https://forum.ethernode.io">Forum</a>
-    </nav>
-</div>
+    <div className="menu-header">
+        <div className="nav">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a>  </li>
+                    <li><a href="https://forum.ethernode.io">Forum</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 );
 
 export default Nav;

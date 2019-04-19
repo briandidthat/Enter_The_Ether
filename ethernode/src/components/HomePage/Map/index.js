@@ -1,8 +1,9 @@
 import React from "react";
-import mapImg from "../../assets/map.png"
+import mapImg from "../../../assets/map.png"
+import "./Map.css"
 
 const HomeMap = () => (
-    <div className="map">
+    <div className="home-map">
 			<div>
 				<h2>Decentralized Node Network</h2>
 				<h5>Join a community that believes in immutability and protecting
@@ -12,12 +13,12 @@ const HomeMap = () => (
 			<div className="home-map-image">
 				<img src={mapImg} alt="Global node hosting blockchain map"></img>
 
-				<div class="ring-container">
+				<div className="ring-container">
 					<div className="ringring"></div>
 					<div className="circle"></div>
 				</div>
 
-				<div class="ring-container2">
+				<div className="ring-container2">
 					<div className="ringring"></div>
 					<div className="circle"></div>
 				</div>

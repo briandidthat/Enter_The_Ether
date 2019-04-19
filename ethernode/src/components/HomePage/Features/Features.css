@@ -1,0 +1,30 @@
+/* home-features
+=========================== */
+
+.home-features {
+  background-color: #2FCE74;
+  margin: 0 auto;
+  padding: 2em 0;
+}
+
+.home-features * {
+  color: white;
+}
+
+.home-features > div {
+  display: inline-block;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 62em;
+}
+
+.home-Feature {
+  width: 16em;
+}
+
+@media (max-width: 65rem) {
+  .home-features {
+    font-size: .8em;
+  }
+}
+

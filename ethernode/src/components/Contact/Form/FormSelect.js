@@ -1,10 +1,10 @@
 import React from "react";
 import { FormSelect } from "shards-react";
 
-function FormSelectCountry() {
-  return (
-    <FormSelect>
-      <option value="AF">Afghanistan</option>
+const FormSelectCountry = () => {
+	return (
+		<FormSelect>
+			<option value="AF">Afghanistan</option>
 			<option value="AX">Åland Islands</option>
 			<option value="AL">Albania</option>
 			<option value="DZ">Algeria</option>
@@ -253,8 +253,8 @@ function FormSelectCountry() {
 			<option value="YE">Yemen</option>
 			<option value="ZM">Zambia</option>
 			<option value="ZW">Zimbabwe</option>
-    </FormSelect>
-  );
+		</FormSelect>
+	);
 }
 
 export default FormSelectCountry;
