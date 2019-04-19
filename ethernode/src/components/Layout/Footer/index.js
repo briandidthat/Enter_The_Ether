@@ -6,36 +6,33 @@ import linkedInLogo from "../../../assets/linkedin-brands.svg"
 import redditLogo from "../../../assets/reddit-brands.svg";
 import discordLogo from "../../../assets/discord-brands.svg";
 import { Container, Row, Col } from "react-grid-system";
-import styles from "./Footer.css";
+import "./Footer.css";
 
 
 //functional component for the footer
 const Footer = () => {
   return (
-  
-  <footer>
-  <div className={styles.footer}>
-    <Container>
-      <Row>
-        <Col lg={8}>
-            <div className={styles.footer}>
+    <footer>
+      <Container>
+        <Row>
+          <Col sm={4}>
+            <div className="footer">
               <img src={blackLogo} alt="blacklogo" className="footer-logo"></img>
             </div>
-        </Col>
+          </Col>
         </Row>
         <Row>
-        <Col lg={12}>
-              <a href="https://github.com/ethernodeio"><img src={githubLogo} alt="Github Logo" className="social-icon" /></a>
-              <a href="https://twitter.com/Ethernode_io"><img src={twitterLogo} alt="Twitter Logo" className="social-icon" /></a>
-              <a href="https://www.reddit.com/r/Ethernode"><img src={redditLogo} alt="Reddit Logo" className="social-icon" /></a>        
-              <a href="https://www.linkedin.com/company/ethernode"><img src={linkedInLogo} alt="LinkedIn Logo" className="social-icon" /></a>
-              <a href ="https://discord.gg/hXkUpV5"> <img src={discordLogo} alt="Discord Logo" className="social-icon"></img></a>
-        </Col>
-      </Row>
-    </Container>
-    </div>
-  </footer>
- )
+          <Col lg={12}>
+            <a href="https://github.com/ethernodeio"><img src={githubLogo} alt="Github Logo" className="social-icon" /></a>
+            <a href="https://twitter.com/Ethernode_io"><img src={twitterLogo} alt="Twitter Logo" className="social-icon" /></a>
+            <a href="https://www.reddit.com/r/Ethernode"><img src={redditLogo} alt="Reddit Logo" className="social-icon" /></a>
+            <a href="https://www.linkedin.com/company/ethernode"><img src={linkedInLogo} alt="LinkedIn Logo" className="social-icon" /></a>
+            <a href="https://discord.gg/hXkUpV5"> <img src={discordLogo} alt="Discord Logo" className="social-icon"></img></a>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  )
 };
 
 export default Footer;

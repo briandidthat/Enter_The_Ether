@@ -4,9 +4,10 @@ import HomeCard from "../../components/HomePage/Card";
 import HomeMap from "../../components/HomePage/Map";
 import Features from "../../components/HomePage/Features"
 
+
 const Home = () => {
     return (
-      <div>
+      <div className="home">
         <About />
         <HomeCard />
         <HomeMap />
