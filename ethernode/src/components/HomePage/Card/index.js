@@ -1,7 +1,7 @@
 import React from "react";
+import Button from "../../UI/Button";
 import ethernodeLogo from "../../../assets/ethernode_logo.svg";
 import enconnectLogo from "../../../assets/enconnect_logo.svg";
-
 
 const HomeCard = () => (
 
@@ -14,7 +14,7 @@ const HomeCard = () => (
 				<p>Hardware for your home.<br></br>
 					a one stop shop solution.<br></br>
 				</p>
-				<a href="#top" class="button button-accent">Coming Soon!</a>
+				<Button className="button button-accent">Coming Soon!</Button>
 			</div>
 
 			<div className="card">
@@ -23,7 +23,7 @@ const HomeCard = () => (
 				<p>Our Linux based lightweight<br></br>
 					ETC Blockchain OS<br></br>
 				</p>
-				<a href="#top" class="button button-accent">Coming Soon!</a>
+				<Button className="button button-accent">Coming Soon!</Button>
 			</div>
 
 			<div className="card">
@@ -32,7 +32,7 @@ const HomeCard = () => (
 				<p>Cloud Nodes for custom needs.<br></br>
 					Account access, and Support.
 				</p>
-				<a href="#top" class="button button-accent">Coming Soon!</a>
+				<Button className="button button-accent">Coming Soon!</Button>
 			</div>
 
 		</div>

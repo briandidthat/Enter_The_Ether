@@ -1,5 +1,7 @@
 import React from "react";
 import ethernodeLogo from "../../../assets/ethernode_logo.svg"
+import Button from "../../UI/Button";
+
 
 const ProductCard = () => (
     <section className="home-cards">
@@ -14,7 +16,7 @@ const ProductCard = () => (
                     - Custom Case and AC adapter<br></br>
                     - Easy to use Manual<br></br>
                 </p>
-                <a href="https://ethernode.io/" class="button button-accent">Preorder</a>
+                <Button className="button button-accent">Preorder</Button>
             </div>
 
             <div className="card">
@@ -27,7 +29,7 @@ const ProductCard = () => (
 						- Custom Case and AC adapter<br></br>
 						- Easy to use Manual<br></br>
 				</p>
-                <a href="https://ethernode.io/enos" class="button button-accent">Preorder</a>
+                <Button className="button button-accent">Preorder</Button>
             </div>
 
             <div class="card">
@@ -40,7 +42,7 @@ const ProductCard = () => (
                     - Custom Case and AC adapter<br></br>
                     - Easy to use Manual<br></br>
                 </p>
-                <a href="https://ethernode.io/" class="button button-accent">Preorder</a>
+                <Button className="button button-accent">Preorder</Button>
             </div>
         </div>
     </section>

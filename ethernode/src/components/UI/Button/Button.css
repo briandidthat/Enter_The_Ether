@@ -1,0 +1,23 @@
+/* Buttons */
+.button {
+    display: inline-block;
+    font-size: 1em;
+    text-decoration: none;
+    padding: .5em 1em;
+    border-radius: 3em;
+  }
+  
+  .button-accent {
+    color: white;
+    background-image: linear-gradient(to bottom right, #71F1AD, #3ED279);
+  }
+  
+  .button-accent:hover,
+  .button-accent:focus {
+    background: #71F1AD;
+  }
+  
+  .button-white {
+    color: white;
+    border-color: white;
+  }
