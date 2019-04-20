@@ -1,0 +1,45 @@
+/* Cards */
+.home-cards {
+    background-color: #EFEFEF;
+    margin: 0 auto;
+    padding: 5em 0;
+  }
+  
+  .home-cards > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 62em;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 0.5em;
+    width: 18em;
+    padding: 1.8em 0;
+    box-shadow: 2px 4px 16px rgba(145, 108, 108, 0.03);
+  }
+  
+  .card img {
+    width: 7em;
+    margin: -.2em 0 -.5em 0;
+  }
+  
+  .card h4 {
+    margin-bottom: -0.2em;
+  }
+  
+  .card a {
+    size: .1em;
+    margin: 0.8em;
+    box-shadow: 2px 3px 6px rgba(0, 250, 100, .2);
+  }
+  
+  @media (max-width: 65rem) {
+    .home-cards {
+      font-size: .8em;
+    }
+  }
+  
+  
+  

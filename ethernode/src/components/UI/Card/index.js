@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../UI/Button";
+import "./Card.css"
 
 const Card = ({ children }) => (
     <div 
@@ -7,8 +7,6 @@ const Card = ({ children }) => (
       className="card"
     >
       {children}
-      <br></br>
-      <Button />
     </div>
 
 );
