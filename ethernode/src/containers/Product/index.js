@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import ProductCards from "../../components/Product/ProductCard"
+import Pricing from "../../components/Pricing"
 
-export class Product extends Component {
+
+class Product extends Component {
   render() {
     return (
       <div>
-        <ProductCards />
+        <Pricing />
       </div>
     )
   }
