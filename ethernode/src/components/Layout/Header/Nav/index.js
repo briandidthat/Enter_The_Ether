@@ -2,8 +2,7 @@ import React from "react";
 import "./Nav.css"
 
 //functional component for the Navbar
-const Nav = () => {
-    return (
+const Nav = () => (
     <div className="menu-header">
         <div className="nav">
             <nav>
@@ -16,7 +15,6 @@ const Nav = () => {
             </nav>
         </div>
     </div>
-  )
-};
+)
 
 export default Nav;

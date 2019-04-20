@@ -5,6 +5,7 @@ header {
     left: 0;
     right: 0;
     margin: 1em;
+
 }
 
 .menu-header {
@@ -14,10 +15,10 @@ header {
 }
 
 .logo {
-    width: 14em;
+    width: 6em;
 }
   
-.title {
+h1 {
     font-size: 5em;
     margin-top: 1em;
     letter-spacing: .03em;
