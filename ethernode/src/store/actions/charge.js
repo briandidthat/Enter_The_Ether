@@ -2,19 +2,20 @@ import * as actionTypes from "./actionTypes";
 
 export const submitCharge = payload => {
     return {
-      type: actionTypes.CHARGE_SUBMIT_CHARGE,
+      type: actionTypes.SUBMIT_CHARGE,
       payload: payload
-    };
-  };
-
-export const getTier = () => {
-    return {
-      type: actionTypes.CHARGE_GET_TIER,
     };
 };
 
 export const getTiers = () => {
-  return {
-    type: actionTypes.CHARGE_GET_TIERS,
-  };
+    return {
+      type: actionTypes.GET_TIERS,
+    };
 };
+
+export const getTier = () => {
+    return {
+      type: actionTypes.GET_TIER,
+    };
+};
+

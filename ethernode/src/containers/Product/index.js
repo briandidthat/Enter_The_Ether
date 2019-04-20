@@ -4,9 +4,7 @@ import Button from "../../components/UI/Button";
 import Card from "../../components/UI/Card";
 
 
-
 class Product extends Component {
-
     state = {
       amount: 0
     }
