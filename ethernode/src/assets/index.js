@@ -6,12 +6,13 @@ import ethernodeName from "./ethernode_logo_name.svg";
 import ethernodeLogo from "./ethernode_logo.svg";
 import hardware from "./home_features_hardware.svg";
 import nodes from "./home_features_nodes.svg";
-import uptime from "./home_features_uptime.svg";
+import upTime from "./home_features_uptime.svg";
 import linkedInLogo from "./linkedin-brands.svg";
 import redditLogo from "./reddit-brands.svg";
 import twitterLogo from "./twitter_logo.svg";
 import discordLogo from "./discord-brands.svg";
 import githubLogo from "./github_logo.svg";
+import mapImg from "./map.png";
 
 
 const icons  = {
@@ -23,12 +24,13 @@ const icons  = {
     ethernodeLogo,
     hardware,
     nodes,
-    uptime,
+    upTime,
     linkedInLogo,
     redditLogo,
     twitterLogo,
     discordLogo,
-    githubLogo
+    githubLogo,
+    mapImg
 };
 
 export default icons;

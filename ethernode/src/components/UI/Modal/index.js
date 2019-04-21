@@ -1,32 +1,54 @@
-import React from "react";
-import Button from "../Button";
-import { Modal, ModalBody, ModalHeader } from "shards-react";
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
-class CheckoutModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: false };
-    this.toggle = this.toggle.bind(this);
-  }
+class ScrollDialog extends React.Component {
+  state = {
+    open: false,
+    scroll: 'paper',
+  };
 
-  toggle() {
-    this.setState({
-      open: !this.state.open
-    });
-  }
+  handleClickOpen = scroll => () => {
+    this.setState({ open: true, scroll });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
 
   render() {
-    const { open } = this.state;
     return (
       <div>
-        <Button onClick={this.toggle}>Click Me!</Button>
-        <Modal open={open} toggle={this.toggle}>
-          <ModalHeader>Header</ModalHeader>
-          <ModalBody>👋 Hello there!</ModalBody>
-        </Modal>
+        <Button onClick={this.handleClickOpen('paper')}>scroll=paper</Button>
+        <Button onClick={this.handleClickOpen('body')}>scroll=body</Button>
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          scroll={this.state.scroll}
+          aria-labelledby="scroll-dialog-title"
+        >
+          <DialogTitle id="scroll-dialog-title">Subscribe</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+             
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Cancel
+            </Button>
+            <Button onClick={this.handleClose} color="primary">
+              Subscribe
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     );
   }
 }
 
-export default CheckoutModal;
+export default ScrollDialog;
