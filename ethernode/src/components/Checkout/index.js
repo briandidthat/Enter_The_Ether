@@ -16,6 +16,15 @@ import Confirm from './Confirm';
 class Checkout extends React.Component {
   state = {
     activeStep: 0,
+    firstName: '',
+    lastName: '',
+    email: '',
+    address: '',
+    city: '',
+    state: '',
+    cardNumber: 0,
+    expire: 0,
+    cvv: 0
   };
 
   getStepContent = step => {
@@ -76,9 +85,12 @@ class Checkout extends React.Component {
                     Thank you for your order.
                   </Typography>
                   <Typography variant="subtitle1">
-                    Your order number is {} We have emailed your order confirmation, and will
+                    Your order number is We have emailed your order confirmation, and will
                     send you an update when your order has shipped.
                   </Typography>
+                  <Button onClick={this.handleBack} className={classes.button}>
+                          Back
+                  </Button>
                 </React.Fragment>
               ) : (
                   <React.Fragment>

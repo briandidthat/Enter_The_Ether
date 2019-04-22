@@ -1,5 +1,4 @@
 import React from "react";
-import About from "../../components/About"
 import HomeMap from "../../components/Map";
 import Features from "../../components/Features"
 import Interaction from "../../components/Interaction";
@@ -12,7 +11,7 @@ import HomeCards from "../../components/HomeCards";
 const Home = () => (
   <div className="home">
     <Interaction />
-    <About />
+    <br />
     <HomeCards />
     <HomeMap />
     <Features />

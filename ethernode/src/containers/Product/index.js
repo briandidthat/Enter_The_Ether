@@ -8,9 +8,10 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from "@material-ui/core/CardActions";
 import CardHeader from "@material-ui/core/CardHeader";
 import Dialog from "@material-ui/core/Dialog";
-import DialogContent from "@material-ui/core/DialogContent";
+
 
 import Checkout from "../../components/Checkout";
+import About from "../../components/About"
 
 import "./Product.css";
 
@@ -41,10 +42,9 @@ class Product extends Component {
                     scroll={this.state.scroll}
                     aria-labelledby="scroll-dialog-title"
                 >
-                  <DialogContent>
                     <Checkout />
-                  </DialogContent>
                 </Dialog>
+                <About />
                 <br />
                 <Container>
                     <Row>

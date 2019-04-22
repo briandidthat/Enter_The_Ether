@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import { Container, Row } from "react-grid-system";
+import { Container, Row, Col } from "react-grid-system";
 
 //import Card/TextField components
 import Card from "@material-ui/core/Card";
-// import CardContent from "@material-ui/core/CardContent";
-// import CardActions from "@material-ui/core/CardActions";
-// import TextField from "@material-ui/core/TextField";
-// import Button from "../../components/UI/Button";
-
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import TextField from "@material-ui/core/TextField";
+import Button from "../../components/UI/Button";
 
 import "./Contact.css";
 
@@ -23,6 +22,7 @@ class Contact extends Component {
     this.setState({
       [name]: event.target.value,
     });
+    
   };
 
   handleFormSubmit = e => {
@@ -42,27 +42,33 @@ class Contact extends Component {
       <div className="container">
         <Container>
           <Row>
-            <Card>
-              {/* <CardContent>
+            <Card style={styles.card}>
+              <CardContent>
                 <Row>
+                  <Col sm={6}>
                 <TextField
                   id="outlined-name"
-                  label="FirstName"
+                  label="First Name"
                   value={this.state.firstName}
                   onChange={this.handleChange('firstName')}
                   margin="normal"
                   variant="outlined"
                 />
+                </Col>
+                <Col sm={6}>
                 <TextField
                   id="outlined-name"
-                  label="FirstName"
-                  value={this.state.firstName}
+                  label="Last Name"
+                  value={this.state.lastName}
                   onChange={this.handleChange('lastName')}
                   margin="normal"
                   variant="outlined"
                 />
+                </Col>
               </Row>
+              
               <Row>
+                <Col lg={12}>
                 <TextField
                   id="outlined-name"
                   label="Email"
@@ -72,8 +78,10 @@ class Contact extends Component {
                   margin="normal"
                   variant="outlined"
                 />
+                </Col>
               </Row>
                 <Row>
+              <Col lg={12}>
                 <TextField
                   id="outlined-name"
                   multiline={true}
@@ -83,15 +91,18 @@ class Contact extends Component {
                   margin="normal"
                   variant="outlined"
                 />
+                </Col>
                 </Row>
               </CardContent>
               <CardActions>
-                <Button
+                <Button 
+                  className="button button-accent"
+                  style={styles.button}
                   onClick={this.handleFormSubmit}
                 > Submit
                 </Button>
-              </CardActions> */}
-            </Card>
+              </CardActions> 
+          </Card>
           </Row>
         </Container>
         <br />
@@ -100,5 +111,15 @@ class Contact extends Component {
     )
   }
 }
+
+const styles = {
+  card: {
+    background: "white",
+    justifyContent: "center"
+  },
+  button: {
+    alignItems: "center"
+  }
+};
 
 export default Contact;
