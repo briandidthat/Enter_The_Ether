@@ -1,7 +1,3 @@
-//UI
-export const UI_MODAL_OPEN = "UI_MODAL_OPEN";
-export const UI_MODAL_CLOSE = "UI_MODAL_CLOSE";
-
 // Charge
 export const GET_TIER = "GET_TIER";
 export const GET_TIERS = "GET_TIERS";
