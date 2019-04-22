@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Container, Row } from "react-grid-system";
 
 //import Card/TextField components
 import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import TextField from "@material-ui/core/TextField";
-import Button from "../../components/UI/Button";
+// import CardContent from "@material-ui/core/CardContent";
+// import CardActions from "@material-ui/core/CardActions";
+// import TextField from "@material-ui/core/TextField";
+// import Button from "../../components/UI/Button";
+
 
 import "./Contact.css";
 
@@ -42,7 +43,7 @@ class Contact extends Component {
         <Container>
           <Row>
             <Card>
-              <CardContent>
+              {/* <CardContent>
                 <Row>
                 <TextField
                   id="outlined-name"
@@ -89,7 +90,7 @@ class Contact extends Component {
                   onClick={this.handleFormSubmit}
                 > Submit
                 </Button>
-              </CardActions>
+              </CardActions> */}
             </Card>
           </Row>
         </Container>
