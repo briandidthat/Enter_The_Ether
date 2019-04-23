@@ -29,11 +29,13 @@ const HomeCards = () => (
                                 a one stop shop solution.<br />
                             </p>
                             <CardActions>
+                                <Col lg={12}>
                                 <Button className="button button-accent"
                                     onClick={handleClick}
                                 >
                                     Coming Soon!
                                 </Button>
+                                </Col>
                             </CardActions>
                         </CardContent>
                     </Card>
@@ -50,11 +52,13 @@ const HomeCards = () => (
                                 ETC Blockchain OS<br />
                             </p>
                             <CardActions>
+                                <Col lg={12}>
                                 <Button className="button button-accent"
                                     onClick={handleClick}
                                 >
                                     Coming Soon!
                                 </Button>
+                                </Col>
                             </CardActions>
                         </CardContent>
                     </Card>
@@ -71,11 +75,13 @@ const HomeCards = () => (
                                 Account access, and Support.
 						    </p>
                             <CardActions>
+                                <Col lg={12}>
                                 <Button className="button button-accent"
                                     onClick={handleClick}
                                 >
                                     Coming Soon!
                                 </Button>
+                                </Col>
                             </CardActions>
                         </CardContent>
                     </Card>
