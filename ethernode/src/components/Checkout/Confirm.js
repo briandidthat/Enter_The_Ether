@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Grid from '@material-ui/core/Grid';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Grid from "@material-ui/core/Grid";
 
 class Confirm extends Component {
 
   render() {
     const products = [
-      { name: 'Product 1', desc: 'Baby Node', price: '$299.99' },
-      { name: 'Product 2', desc: 'Toddler Node', price: '$399.99' },
-      { name: 'Product 3', desc: 'Gentlemen Node', price: '$499.99' },
-      { name: 'Product 4', desc: 'Baller Node', price: '$629.99' },
-      { name: 'Shipping', desc: '', price: 'Free' },
+      { name: "Product 1", desc: "Baby Node", price: "$299.99" },
+      { name: "Product 2", desc: "Toddler Node", price: "$399.99" },
+      { name: "Product 3", desc: "Gentlemen Node", price: "$499.99" },
+      { name: "Product 4", desc: "Big Baller Node", price: "$629.99" },
+      { name: "Shipping", desc: '', price: "Free" },
     ];
-    const addresses = ['1 Stoner Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+
+    const addresses = ["1 Stoner Drive", "Reactville", "Anytown", "99999", "USA"];
     const payments = [
-      { name: 'Card type', detail: 'Visa' },
-      { name: 'Card holder', detail: 'Mr Aaron Lowry' },
-      { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-      { name: 'Expiration date', detail: '04/2024' },
+      { name: "Card type", detail: "Visa" },
+      { name: "Card holder", detail: "Mr Aaron Lowry" },
+      { name: "Card number", detail: "xxxx-xxxx-xxxx-1234" },
+      { name: "Expiration date", detail: "04/2024" },
     ];
 
     const { classes } = this.props;
@@ -42,7 +43,7 @@ class Confirm extends Component {
           <ListItem className={classes.listItem}>
             <ListItemText primary="Total" />
             <Typography variant="subtitle1" className={classes.total}>
-              $34.06
+              $1829
           </Typography>
           </ListItem>
         </List>

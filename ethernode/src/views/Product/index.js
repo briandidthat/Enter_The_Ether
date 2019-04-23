@@ -1,5 +1,5 @@
-import React from 'react'
-import About from "../../components/About"
+import React from "react";
+import About from "../../components/About";
 import Products from "../../components/Products";
 
 //Functional Product component

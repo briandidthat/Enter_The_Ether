@@ -114,7 +114,6 @@ export class ContactForm extends Component {
     }
 }
 
-
 const styles = {
     card: {
         background: "white",

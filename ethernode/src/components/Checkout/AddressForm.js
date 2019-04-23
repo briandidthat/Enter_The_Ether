@@ -32,7 +32,7 @@ class AddressForm extends Component {
               label="Last name"
               fullWidth
               autoComplete="lname"
-              onChange={handleChange('lastName')} 
+              onChange={handleChange("lastName")} 
             />
           </Grid>
           <Grid item xs={12}>
@@ -43,7 +43,7 @@ class AddressForm extends Component {
               label="Email"
               fullWidth
               autoComplete="email"
-              onChange={handleChange('email')}
+              onChange={handleChange("email")}
             />
           </Grid>
           <Grid item xs={12}>
@@ -54,7 +54,7 @@ class AddressForm extends Component {
               label="Address line 1"
               fullWidth
               autoComplete="billing address-line1"
-              onChange={handleChange('address1')}
+              onChange={handleChange("address1")}
             />
           </Grid>
           <Grid item xs={12}>
@@ -64,7 +64,7 @@ class AddressForm extends Component {
               label="Address line 2"
               fullWidth
               autoComplete="billing address-line2"
-              onChange={handleChange('address2')}
+              onChange={handleChange("address2")}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -75,7 +75,7 @@ class AddressForm extends Component {
               label="City"
               fullWidth
               autoComplete="billing address-level2"
-              onChange={handleChange('city')}
+              onChange={handleChange("city")}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -83,7 +83,7 @@ class AddressForm extends Component {
               id="state" 
               label="State/Province/Region"  
               fullWidth 
-              onChange={handleChange('state')}
+              onChange={handleChange("state")}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -94,7 +94,7 @@ class AddressForm extends Component {
               label="Zip / Postal code"
               fullWidth
               autoComplete="billing postal-code"
-              onChange={handleChange('zip')}
+              onChange={handleChange("zip")}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -105,7 +105,7 @@ class AddressForm extends Component {
               label="Country"
               fullWidth
               autoComplete="billing country"
-              onChange={handleChange('country')}
+              onChange={handleChange("country")}
             />
           </Grid>
           <Grid item xs={12}>

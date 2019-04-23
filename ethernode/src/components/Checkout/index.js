@@ -1,32 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Paper from '@material-ui/core/Paper';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import AddressForm from './AddressForm';
-import PaymentDetails from './PaymentDetails';
-import Confirm from './Confirm';
+import React from "react";
+import PropTypes from "prop-types";
+import withStyles from "@material-ui/core/styles/withStyles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Paper from "@material-ui/core/Paper";
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepLabel from "@material-ui/core/StepLabel";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import AddressForm from "./AddressForm";
+import PaymentDetails from "./PaymentDetails";
+import Confirm from "./Confirm";
 
 
 class Checkout extends React.Component {
   state = {
     activeStep: 0,
     price: 0,
-    firstName: '',
-    lastName: '',
-    email: '',
-    address1: '',
-    address2: '',
-    city: '',
-    state: '',
-    country: '',
-    cardNumber: 0,
-    cardHolder: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    country: "",
+    cardNumber: "",
+    cardHolder: "",
     expire: 0,
     cvv: 0
   };
@@ -50,7 +50,7 @@ class Checkout extends React.Component {
 
         />;
       default:
-        throw new Error('Unknown step');
+        throw new Error("Unknown step");
     }
   };
 
@@ -98,7 +98,7 @@ class Checkout extends React.Component {
   render() {
     const { classes } = this.props;
     const { activeStep } = this.state;
-    const steps = ['Shipping address', 'Payment details', 'Review your order'];
+    const steps = ["Shipping address", "Payment details", "Review your order"];
     const orderNumber = 2220;
 
     return (
@@ -147,7 +147,7 @@ class Checkout extends React.Component {
                         onClick={activeStep === steps.length - 1 ? this.handleSubmit : this.handleNext}
                         className={classes.button}
                       >
-                        {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                        {activeStep === steps.length - 1 ? "Place order" : "Next"}
                       </Button>
                     </div>
                   </React.Fragment>
