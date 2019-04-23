@@ -15,7 +15,7 @@ const handleClick = () => {
 
 const HomeCards = () => (
 
-    <div className="home-cards">
+    <React.Fragment>
         <Container>
             <Row>
                 <Col sm={4}>
@@ -33,7 +33,7 @@ const HomeCards = () => (
                                     onClick={handleClick}
                                 >
                                     Coming Soon!
-                                    </Button>
+                                </Button>
                             </CardActions>
                         </CardContent>
                     </Card>
@@ -54,7 +54,7 @@ const HomeCards = () => (
                                     onClick={handleClick}
                                 >
                                     Coming Soon!
-                                    </Button>
+                                </Button>
                             </CardActions>
                         </CardContent>
                     </Card>
@@ -75,15 +75,14 @@ const HomeCards = () => (
                                     onClick={handleClick}
                                 >
                                     Coming Soon!
-                                    </Button>
+                                </Button>
                             </CardActions>
                         </CardContent>
                     </Card>
                 </Col>
             </Row>
         </Container>
-    </div>
-
+    </React.Fragment>
 );
 
 export default HomeCards;

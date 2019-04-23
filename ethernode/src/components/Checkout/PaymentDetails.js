@@ -26,7 +26,7 @@ function PaymentDetails() {
             required
             id="cvv"
             label="CVV"
-            helperText="Last three digits on signature strip"
+            helperText="Three digits on signature strip"
             fullWidth
           />
         </Grid>

@@ -13,6 +13,7 @@ import twitterLogo from "./twitter_logo.svg";
 import discordLogo from "./discord-brands.svg";
 import githubLogo from "./github_logo.svg";
 import mapImg from "./map.png";
+import protoType from "./Prototype_Angle_Clipped.png"
 
 
 const icons  = {
@@ -30,7 +31,8 @@ const icons  = {
     twitterLogo,
     discordLogo,
     githubLogo,
-    mapImg
+    mapImg,
+    protoType
 };
 
 export default icons;

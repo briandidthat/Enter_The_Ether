@@ -16,6 +16,7 @@ import Confirm from './Confirm';
 class Checkout extends React.Component {
   state = {
     activeStep: 0,
+    price: 0,
     firstName: '',
     lastName: '',
     email: '',
@@ -79,6 +80,7 @@ class Checkout extends React.Component {
     const { classes } = this.props;
     const { activeStep } = this.state;
     const steps = ['Shipping address', 'Payment details', 'Review your order'];
+    const orderNumber = 2220;
 
     return (
       <React.Fragment>
@@ -102,7 +104,7 @@ class Checkout extends React.Component {
                     Thank you for your order.
                   </Typography>
                   <Typography variant="subtitle1">
-                    Your order number is We have emailed your order confirmation, and will
+                    Your order number {orderNumber} is We have emailed your order confirmation, and will
                     send you an update when your order has shipped.
                   </Typography>
                   <Button onClick={this.handleBack} className={classes.button}>

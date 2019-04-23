@@ -1,10 +1,12 @@
 import React from "react";
+import { Row, Col } from "react-grid-system";
 import "./Nav.css"
+
 
 //functional component for the Navbar
 const Nav = () => (
-    <div className="menu-header">
-        <div className="nav">
+        <Row>
+          <Col lg={12}>
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
@@ -13,8 +15,8 @@ const Nav = () => (
                     <li><a href="product">Product</a></li>
                 </ul>
             </nav>
-        </div>
-    </div>
+          </Col>
+        </Row>
 )
 
 export default Nav;
