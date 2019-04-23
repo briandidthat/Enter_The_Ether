@@ -20,10 +20,13 @@ class Checkout extends React.Component {
     firstName: '',
     lastName: '',
     email: '',
-    address: '',
+    address1: '',
+    address2: '',
     city: '',
     state: '',
+    country: '',
     cardNumber: 0,
+    cardHolder: '',
     expire: 0,
     cvv: 0
   };
@@ -31,14 +34,27 @@ class Checkout extends React.Component {
   getStepContent = step => {
     switch (step) {
       case 0:
-        return <AddressForm />;
+        return <AddressForm
+          handleChange={this.handleChange}
+        />;
       case 1:
-        return <PaymentDetails />;
+        return <PaymentDetails
+          handleChange={this.handleChange}
+          
+        />;
       case 2:
-        return <Confirm />;
+        return <Confirm
+          handleSubmit={this.submit}
+          handleChange={this.handleChange}
+         
+        />;
       default:
         throw new Error('Unknown step');
     }
+  };
+
+  handleChange = input => e => {
+    this.setState({ [input]: e.target.value });
   };
 
   handleNext = () => {
@@ -65,10 +81,12 @@ class Checkout extends React.Component {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
-      address: this.state.address,
+      address1: this.state.address1,
+      address2: this.state.address2,
       city: this.state.city,
       state: this.state.state,
       cardNumber: this.state.cardNumber,
+      cardHolder: this.state.cardHolder,
       expire: this.state.expire,
       cvv: this.state.cvv
     })
@@ -108,7 +126,7 @@ class Checkout extends React.Component {
                     send you an update when your order has shipped.
                   </Typography>
                   <Button onClick={this.handleBack} className={classes.button}>
-                          Back
+                    Back
                   </Button>
                 </React.Fragment>
               ) : (
@@ -123,10 +141,10 @@ class Checkout extends React.Component {
                       <Button
                         variant="contained"
                         color="primary"
-                        onClick={activeStep === steps.length -1 ? this.handleSubmit : this.handleNext}
+                        onClick={activeStep === steps.length - 1 ? this.handleSubmit : this.handleNext}
                         className={classes.button}
                       >
-                        {activeStep === steps.length - 1 ? 'Place order': 'Next'}
+                        {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
                       </Button>
                     </div>
                   </React.Fragment>
@@ -159,7 +177,7 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
       marginTop: theme.spacing.unit * 6,
-      marginBottom: theme.spacing.unit * 6,
+      marginBottom: theme.spacing.unit * 3,
       padding: theme.spacing.unit * 3,
     },
   },

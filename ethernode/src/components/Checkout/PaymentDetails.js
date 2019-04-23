@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 
-function PaymentDetails() {
+
+class PaymentDetails extends Component {
+  render() {
+  const { handleChange } = this.props;
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -13,33 +14,28 @@ function PaymentDetails() {
       </Typography>
       <Grid container spacing={24}>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardName" label="Name on card" "cardName" fullWidth />
+          <TextField required id="cardName" label="Name on card" onChange={handleChange('cardHolder')} fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardNumber" label="Card number" name="cardNumber" fullWidth />
+          <TextField required id="cardNumber" label="Card number" onChange={handleChange('cardNumber')} fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" label="Expiry date" name="expDate" fullWidth />
+          <TextField required id="expDate" label="Expiry date" onChange={handleChange('expDate')} fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
             required
             id="cvv"
-            name="cvv"
             label="CVV"
             helperText="Three digits on signature strip"
             fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-            label="Remember credit card details for next time"
+            onChange={handleChange('cvv')}
           />
         </Grid>
       </Grid>
     </React.Fragment>
   );
+}
 }
 
 export default PaymentDetails;
