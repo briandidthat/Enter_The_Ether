@@ -40,12 +40,10 @@ class Products extends Component {
                                 <CardContent>
                                     <img src={icons.ethernodeLogo} alt="ethernode icon" style={{ maxWidth: "8em" }} />
                                     <Typography variant="body1" color="textPrimary">
-
                                         EnOS Custom Linux Kernel<br />
                                         OpenRPC, nodeJS, http2<br />
                                         ETC Mainet and Kotti Ready<br />
                                         Custom Case and AC adapter<br />
-
                                     </Typography>
                                     <CardActions>
                                         <Col lg={12}>

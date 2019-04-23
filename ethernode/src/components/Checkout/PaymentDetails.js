@@ -13,13 +13,13 @@ function PaymentDetails() {
       </Typography>
       <Grid container spacing={24}>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardName" label="Name on card" fullWidth />
+          <TextField required id="cardName" label="Name on card" "cardName" fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardNumber" label="Card number" fullWidth />
+          <TextField required id="cardNumber" label="Card number" name="cardNumber" fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" label="Expiry date" fullWidth />
+          <TextField required id="expDate" label="Expiry date" name="expDate" fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
