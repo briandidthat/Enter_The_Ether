@@ -4,7 +4,6 @@ import "./About.css"
 //Functional component that only renders the children it is passed
 
 const About = () => (
-	<div className="home-about">
 		<div>
 			<h5>Ethernode is proudly built by a passionate team.<br />
 				We believe in trust minimization and eliminating 3rd parties.<br />
@@ -12,7 +11,6 @@ const About = () => (
 				We do the heavy lifting, you do the rest.
 			</h5>
 		</div>
-	</div>
 );
 
 export default About;

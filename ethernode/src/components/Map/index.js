@@ -5,6 +5,7 @@ import "./Map.css"
 
 const HomeMap = () => (
 	<div className="home-map">
+		<br />
 		<Container>
 			<Row>
 				<Col lg={12}>
@@ -39,6 +40,7 @@ const HomeMap = () => (
 				</Col>
 			</Row>
 		</Container>
+		<br />
 	</div>
 )
 
