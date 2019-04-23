@@ -31,6 +31,7 @@ class Checkout extends React.Component {
     cvv: 0
   };
 
+  //get current step for checkout form to render content accordingly
   getStepContent = step => {
     switch (step) {
       case 0:
@@ -40,13 +41,13 @@ class Checkout extends React.Component {
       case 1:
         return <PaymentDetails
           handleChange={this.handleChange}
-          
+
         />;
       case 2:
         return <Confirm
           handleSubmit={this.submit}
           handleChange={this.handleChange}
-         
+
         />;
       default:
         throw new Error('Unknown step');
@@ -108,6 +109,7 @@ class Checkout extends React.Component {
             <Typography component="h1" variant="h4" align="center">
               Checkout
             </Typography>
+            {/* Map through the steps of the step array to display them as labels */}
             <Stepper activeStep={activeStep} className={classes.stepper}>
               {steps.map(label => (
                 <Step key={label}>
@@ -115,6 +117,7 @@ class Checkout extends React.Component {
                 </Step>
               ))}
             </Stepper>
+            {/* Ternary Operator to render confirmation text, or allow user to progress through checkout */}
             <React.Fragment>
               {activeStep === steps.length ? (
                 <React.Fragment>

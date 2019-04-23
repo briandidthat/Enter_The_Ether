@@ -11,18 +11,18 @@ class Confirm extends Component {
 
   render() {
     const products = [
-      { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
-      { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
-      { name: 'Product 3', desc: 'Something else', price: '$6.51' },
-      { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
+      { name: 'Product 1', desc: 'Baby Node', price: '$299.99' },
+      { name: 'Product 2', desc: 'Toddler Node', price: '$399.99' },
+      { name: 'Product 3', desc: 'Gentlemen Node', price: '$499.99' },
+      { name: 'Product 4', desc: 'Baller Node', price: '$629.99' },
       { name: 'Shipping', desc: '', price: 'Free' },
     ];
-    const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+    const addresses = ['1 Stoner Drive', 'Reactville', 'Anytown', '99999', 'USA'];
     const payments = [
       { name: 'Card type', detail: 'Visa' },
-      { name: 'Card holder', detail: 'Mr John Smith' },
+      { name: 'Card holder', detail: 'Mr Aaron Lowry' },
       { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-      { name: 'Expiry date', detail: '04/2024' },
+      { name: 'Expiration date', detail: '04/2024' },
     ];
 
     const { classes } = this.props;
