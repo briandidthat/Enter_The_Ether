@@ -7,6 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 
+
 const products = [
   { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
   { name: 'Product 2', desc: 'Another thing', price: '$3.45' },

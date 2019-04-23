@@ -58,6 +58,23 @@ class Checkout extends React.Component {
     });
   };
 
+  handleSubmit = () => {
+    this.setState({
+      activeStep: this.state.activeStep,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      address: this.state.address,
+      city: this.state.city,
+      state: this.state.state,
+      cardNumber: this.state.cardNumber,
+      expire: this.state.expire,
+      cvv: this.state.cvv
+    })
+    this.handleNext();
+    console.log(this.state)
+  }
+
   render() {
     const { classes } = this.props;
     const { activeStep } = this.state;
@@ -104,10 +121,10 @@ class Checkout extends React.Component {
                       <Button
                         variant="contained"
                         color="primary"
-                        onClick={this.handleNext}
+                        onClick={activeStep === steps.length -1 ? this.handleSubmit : this.handleNext}
                         className={classes.button}
                       >
-                        {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                        {activeStep === steps.length - 1 ? 'Place order': 'Next'}
                       </Button>
                     </div>
                   </React.Fragment>

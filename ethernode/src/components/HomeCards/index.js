@@ -14,74 +14,76 @@ const handleClick = () => {
 }
 
 const HomeCards = () => (
-            <Container>
-                <div className="home-cards">
-                <Row>
-                    <Col sm={4}>
-                        <Card>
-                            <CardHeader
-                                title="Ethernode"
-                            />
-                            <CardContent>
-                                <img src={icons.ethernodeLogo} alt="ethernode icon" style={{ maxWidth: "8em" }} />
-                                <p>Hardware for your home.<br />
-                                    a one stop shop solution.<br />
-                                </p>
-                                <CardActions>
-                                    <Button className="button button-accent"
-                                        onClick={handleClick}
-                                    >
-                                        Coming Soon!
-                                    </Button>
-                                </CardActions>
-                            </CardContent>
-                        </Card>
-                    </Col>
 
-                    <Col sm={4}>
-                        <Card>
-                            <CardHeader
-                                title="EnOs"
-                            />
-                            <CardContent>
-                                <img src={icons.ethernodeLogo} alt="EnOS io icon" style={{ maxWidth: "8em" }} />
-                                <p>Our Linux based lightweight<br />
-                                    ETC Blockchain OS<br />
-                                </p>
-                                <CardActions>
-                                    <Button className="button button-accent"
-                                        onClick={handleClick}
-                                    >
-                                        Coming Soon!
+    <div className="home-cards">
+        <Container>
+            <Row>
+                <Col sm={4}>
+                    <Card>
+                        <CardHeader
+                            title="Ethernode"
+                        />
+                        <CardContent>
+                            <img src={icons.ethernodeLogo} alt="ethernode icon" style={{ maxWidth: "8em" }} />
+                            <p>Hardware for your home.<br />
+                                a one stop shop solution.<br />
+                            </p>
+                            <CardActions>
+                                <Button className="button button-accent"
+                                    onClick={handleClick}
+                                >
+                                    Coming Soon!
                                     </Button>
-                                </CardActions>
-                            </CardContent>
-                        </Card>
-                    </Col>
+                            </CardActions>
+                        </CardContent>
+                    </Card>
+                </Col>
 
-                    <Col sm={4}>
-                        <Card>
-                            <CardHeader
-                                title="EnConnect"
-                            />
-                            <CardContent>
-                                <img src={icons.enconnectLogo} alt="enConnect icon" style={{ maxWidth: "8em" }} />
-                                <p>Cloud Nodes for custom needs.<br />
-                                    Account access, and Support.
+                <Col sm={4}>
+                    <Card>
+                        <CardHeader
+                            title="EnOs"
+                        />
+                        <CardContent>
+                            <img src={icons.ethernodeLogo} alt="EnOS io icon" style={{ maxWidth: "8em" }} />
+                            <p>Our Linux based lightweight<br />
+                                ETC Blockchain OS<br />
+                            </p>
+                            <CardActions>
+                                <Button className="button button-accent"
+                                    onClick={handleClick}
+                                >
+                                    Coming Soon!
+                                    </Button>
+                            </CardActions>
+                        </CardContent>
+                    </Card>
+                </Col>
+
+                <Col sm={4}>
+                    <Card>
+                        <CardHeader
+                            title="EnConnect"
+                        />
+                        <CardContent>
+                            <img src={icons.enconnectLogo} alt="enConnect icon" style={{ maxWidth: "8em" }} />
+                            <p>Cloud Nodes for custom needs.<br />
+                                Account access, and Support.
 						    </p>
-                                <CardActions>
-                                    <Button className="button button-accent"
-                                        onClick={handleClick}
-                                    >
-                                        Coming Soon!
+                            <CardActions>
+                                <Button className="button button-accent"
+                                    onClick={handleClick}
+                                >
+                                    Coming Soon!
                                     </Button>
-                                </CardActions>
-                            </CardContent>
-                        </Card>
-                    </Col>
-                </Row>
-            </div>
-            </Container>
+                            </CardActions>
+                        </CardContent>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
+    </div>
+
 );
 
 export default HomeCards;

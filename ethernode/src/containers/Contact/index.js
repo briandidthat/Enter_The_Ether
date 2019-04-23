@@ -4,11 +4,10 @@ import { Container, Row, Col } from "react-grid-system";
 //import Card/TextField components
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
 import TextField from "@material-ui/core/TextField";
 import Button from "../../components/UI/Button";
 
-import "./Contact.css";
+
 
 class Contact extends Component {
   state = {
@@ -42,24 +41,27 @@ class Contact extends Component {
       <div className="container">
         <Container>
           <Row>
+            <Col md={6}>
             <Card style={styles.card}>
               <CardContent>
                 <Row>
-                  <Col sm={6}>
+                <Col md={6}>
                 <TextField
                   id="outlined-name"
                   label="First Name"
+                  fullWidth
                   value={this.state.firstName}
                   onChange={this.handleChange('firstName')}
                   margin="normal"
                   variant="outlined"
                 />
                 </Col>
-                <Col sm={6}>
+                <Col md={6}>
                 <TextField
                   id="outlined-name"
                   label="Last Name"
                   value={this.state.lastName}
+                  fullWidth
                   onChange={this.handleChange('lastName')}
                   margin="normal"
                   variant="outlined"
@@ -73,6 +75,7 @@ class Contact extends Component {
                   id="outlined-name"
                   label="Email"
                   type="email"
+                  fullWidth
                   value={this.state.email}
                   onChange={this.handleChange('email')}
                   margin="normal"
@@ -84,8 +87,9 @@ class Contact extends Component {
               <Col lg={12}>
                 <TextField
                   id="outlined-name"
-                  multiline={true}
                   label="Message"
+                  fullWidth
+                  multiline
                   value={this.state.message}
                   onChange={this.handleChange('message')}
                   margin="normal"
@@ -94,19 +98,16 @@ class Contact extends Component {
                 </Col>
                 </Row>
               </CardContent>
-              <CardActions>
                 <Button 
                   className="button button-accent"
-                  style={styles.button}
                   onClick={this.handleFormSubmit}
                 > Submit
                 </Button>
-              </CardActions> 
           </Card>
+          </Col>
           </Row>
         </Container>
         <br />
-
       </div>
     )
   }
@@ -116,10 +117,8 @@ const styles = {
   card: {
     background: "white",
     justifyContent: "center"
-  },
-  button: {
-    alignItems: "center"
   }
+
 };
 
 export default Contact;
