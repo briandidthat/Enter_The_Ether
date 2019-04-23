@@ -1,8 +1,8 @@
 .footer {
     display: block;
     background-color: white;
+    max-width: 100%;
 }
-
 
 #footer a:visited {
     color: black;
@@ -21,12 +21,13 @@
     letter-spacing: .05em;
     list-style: none;
     text-decoration: none;
+    margin-top: 2em;
 }
 
-  
 .footer-logo {
-    margin-left: -1em;
-    width: 8em;
+    margin-top: 2.5em;
+    margin-right: em;
+    width: 4em;
 }
   
 .social-icon {

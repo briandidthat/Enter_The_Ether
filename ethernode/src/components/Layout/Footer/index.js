@@ -7,18 +7,18 @@ import "./Footer.css";
 
 //functional component for the footer
 const Footer = () => (
-    <footer>
+
+    <div className="footer">
       <Container>
         <Row>
           <Col sm={4}>
-            <div className="footer">
-              <img src={icons.ethernodeLogo} alt="blacklogo" className="footer-logo"></img>
-            </div>
+              <img src={icons.ethernodeLogo} alt="blacklogo" className="footer-logo" title="Ethernode" />
           </Col>
-        </Row>
-        <Row>
-          <Col lg={12}>
-          <div className ="footer-links">
+          <Col sm={4}>
+          <h2>Ethernode</h2>
+          </Col>
+          <Col md={4}>
+          <div className="footer-links">
             <a href="https://github.com/ethernodeio"><img src={icons.githubLogo} alt="Github Logo" className="social-icon" /></a>
             <a href="https://twitter.com/Ethernode_io"><img src={icons.twitterLogo} alt="Twitter Logo" className="social-icon" /></a>
             <a href="https://www.reddit.com/r/Ethernode"><img src={icons.redditLogo} alt="Reddit Logo" className="social-icon" /></a>
@@ -27,8 +27,9 @@ const Footer = () => (
             </div>
           </Col>
         </Row>
-      </Container>
-    </footer>
+        </Container>
+      </div>
+    
 );
 
 export default Footer;
