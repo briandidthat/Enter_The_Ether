@@ -30,11 +30,11 @@ const HomeCards = () => (
                             </p>
                             <CardActions>
                                 <Col lg={12}>
-                                <Button className="button button-accent"
-                                    onClick={handleClick}
-                                >
-                                    Coming Soon!
-                                </Button>
+                                    <Button className="button button-accent"
+                                        onClick={handleClick}
+                                    >
+                                        Coming Soon!
+                                    </Button>
                                 </Col>
                             </CardActions>
                         </CardContent>
@@ -53,11 +53,11 @@ const HomeCards = () => (
                             </p>
                             <CardActions>
                                 <Col lg={12}>
-                                <Button className="button button-accent"
-                                    onClick={handleClick}
-                                >
-                                    Coming Soon!
-                                </Button>
+                                    <Button className="button button-accent"
+                                        onClick={handleClick}
+                                    >
+                                        Coming Soon!
+                                    </Button>
                                 </Col>
                             </CardActions>
                         </CardContent>
@@ -76,11 +76,11 @@ const HomeCards = () => (
 						    </p>
                             <CardActions>
                                 <Col lg={12}>
-                                <Button className="button button-accent"
-                                    onClick={handleClick}
-                                >
-                                    Coming Soon!
-                                </Button>
+                                    <Button className="button button-accent"
+                                        onClick={handleClick}
+                                    >
+                                        Coming Soon!
+                                    </Button>
                                 </Col>
                             </CardActions>
                         </CardContent>

@@ -6,13 +6,13 @@ nav ul {
   
 nav li {
     display: inline-block;
-    margin: 1em;
+    margin: .9em;
 }
   
 nav a {
     font-weight: 900;
     text-decoration: none;
-    font-size: .8em;
+    font-size: 1em;
     padding: .5em;
     color: white;
 }
@@ -22,5 +22,5 @@ nav a:hover {
 }
   
 nav a:focus {
-    color: red;
+    color: blue;
 }

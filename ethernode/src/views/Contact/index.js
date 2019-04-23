@@ -1,41 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 import ContactForm from "../../components/Form";
 
+//Functional Contact component
+//no functionality on HomePage aside from rendering so it can be a functional component
+//no return statement because es6 allows for a parent () 
+//which would automatically return the body cause JS is amaZinggggg.
+//======================================================================================
+//Why chose to make it __functional__?
+//Pure functions that accept no arguments,
+//and have predefined outputs should be stateless components.(tryna reduce side effects)
 
-class Contact extends Component {
-  state = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    message: ""
-  }
-
-  handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value,
-    });
-
-  };
-
-  handleFormSubmit = e => {
-    e.preventDefault();
-    console.log(this.state);
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-    console.log(this.state)
-  }
-
-
-  render() {
-
-    return (
+const Contact = () => (
       <React.Fragment>
           <ContactForm />
       </React.Fragment>
-    )
-  }
-}
+)
 
 export default Contact;

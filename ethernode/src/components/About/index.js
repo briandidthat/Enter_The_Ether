@@ -10,6 +10,7 @@ const About = () => (
 				It doesnt matter if your a Developer or if it's your first experience.<br />
 				We do the heavy lifting, you do the rest.
 			</h5>
+			<br />
 		</div>
 );
 

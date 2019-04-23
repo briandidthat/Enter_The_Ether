@@ -12,7 +12,6 @@ import Typography from "@material-ui/core/Typography";
 //Component imports
 import Checkout from "../../components/Checkout";
 
-
 class Products extends Component {
 
     state = {
@@ -87,7 +86,7 @@ class Products extends Component {
                             </Card>
                         </Col>
                         <Col sm={4}>
-                            <Card>
+                            <Card className="">
                                 <CardHeader
                                     title="2 TB"
                                 />
@@ -112,6 +111,8 @@ class Products extends Component {
                             </Card>
                         </Col>
                     </Row>
+                    <br />
+                    <br />
                 </Container>
                 <Dialog
                     open={this.state.open}
@@ -125,6 +126,5 @@ class Products extends Component {
         );
     };
 }
-
 
 export default Products;
