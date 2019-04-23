@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import icons from "../../assets";
 import Button from "../../components/UI/Button";
 import { Col, Row, Container } from "react-grid-system";
@@ -11,15 +11,11 @@ import Dialog from "@material-ui/core/Dialog";
 import Typography from "@material-ui/core/Typography";
 //Component imports
 import Checkout from "../../components/Checkout";
-import About from "../../components/About"
 
-import "./Product.css";
 
-class Product extends Component {
+class Products extends Component {
 
     state = {
-        amount: 0,
-        tier: [],
         open: false,
         scroll: 'paper',
     }
@@ -35,8 +31,6 @@ class Product extends Component {
     render() {
         return (
             <React.Fragment>
-                <About />
-                <br />
                 <Container>
                     <Row>
                         <Col sm={4}>
@@ -46,15 +40,14 @@ class Product extends Component {
                                 />
                                 <CardContent>
                                     <img src={icons.ethernodeLogo} alt="ethernode icon" style={{ maxWidth: "8em" }} />
-                                    <p>
-                                        <Typography variant="body1" color="textPrimary">
-                                            EnOS Custom Linux Kernel<br />
-                                            OpenRPC, nodeJS, http2<br />
-                                            ETC Mainet and Kotti Ready<br />
-                                            Custom Case and AC adapter<br />
-                                        </Typography>
-                                    </p>
+                                    <Typography variant="body1" color="textPrimary">
 
+                                        EnOS Custom Linux Kernel<br />
+                                        OpenRPC, nodeJS, http2<br />
+                                        ETC Mainet and Kotti Ready<br />
+                                        Custom Case and AC adapter<br />
+
+                                    </Typography>
                                     <CardActions>
                                         <Col lg={12}>
                                             <Button className="button button-accent"
@@ -68,20 +61,19 @@ class Product extends Component {
                             </Card>
                         </Col>
                         <Col sm={4}>
+
                             <Card>
                                 <CardHeader
                                     title="1 TB"
                                 />
                                 <CardContent>
                                     <img src={icons.ethernodeLogo} alt="ethernode icon" style={{ maxWidth: "8em" }} />
-                                    <p>
-                                        <Typography variant="body1" color="textPrimary">
-                                            EnOS Custom Linux Kernel<br />
-                                            OpenRPC, nodeJS, http2<br />
-                                            ETC Mainet and Kotti Ready<br />
-                                            Custom Case and AC adapter<br />
-                                        </Typography>
-                                    </p>
+                                    <Typography variant="body1" color="textPrimary">
+                                        EnOS Custom Linux Kernel<br />
+                                        OpenRPC, nodeJS, http2<br />
+                                        ETC Mainet and Kotti Ready<br />
+                                        Custom Case and AC adapter<br />
+                                    </Typography>
                                     <CardActions>
                                         <Col lg={12}>
                                             <Button className="button button-accent"
@@ -101,14 +93,12 @@ class Product extends Component {
                                 />
                                 <CardContent>
                                     <img src={icons.ethernodeLogo} alt="ethernode icon" style={{ maxWidth: "8em" }} />
-                                    <p>
-                                        <Typography variant="body1" color="textPrimary">
-                                            EnOS Custom Linux Kernel<br />
-                                            OpenRPC, nodeJS, http2<br />
-                                            ETC Mainet and Kotti Ready<br />
-                                            Custom Case and AC adapter<br />
-                                        </Typography>
-                                    </p>
+                                    <Typography variant="body1" color="textPrimary">
+                                        EnOS Custom Linux Kernel<br />
+                                        OpenRPC, nodeJS, http2<br />
+                                        ETC Mainet and Kotti Ready<br />
+                                        Custom Case and AC adapter<br />
+                                    </Typography>
                                     <CardActions>
                                         <Col lg={12}>
                                             <Button className="button button-accent"
@@ -120,23 +110,21 @@ class Product extends Component {
                                     </CardActions>
                                 </CardContent>
                             </Card>
-                            <Dialog
-                                open={this.state.open}
-                                onClose={this.handleClose}
-                                scroll={this.state.scroll}
-                                aria-labelledby="scroll-dialog-title"
-                            >
-                                <Checkout />
-                            </Dialog>
                         </Col>
                     </Row>
                 </Container>
-                <br />
-                <br />
+                <Dialog
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    scroll={this.state.scroll}
+                    aria-labelledby="scroll-dialog-title"
+                >
+                    <Checkout />
+                </Dialog>
             </React.Fragment>
-        )
-    }
+        );
+    };
 }
 
 
-export default Product;
+export default Products;
