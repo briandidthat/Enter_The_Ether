@@ -36,6 +36,7 @@ class Checkout extends React.Component {
     switch (step) {
       case 0:
         return <AddressForm
+          //pass handleChange function as props
           handleChange={this.handleChange}
         />;
       case 1:
@@ -45,8 +46,8 @@ class Checkout extends React.Component {
         />;
       case 2:
         return <Confirm
-          handleSubmit={this.submit}
-          handleChange={this.handleChange}
+          handleSubmit={this.handlesubmit}
+          handleIputChange={this.handleChange}
 
         />;
       default:
@@ -57,6 +58,7 @@ class Checkout extends React.Component {
   handleChange = input => e => {
     this.setState({ [input]: e.target.value });
   };
+
 
   handleNext = () => {
     this.setState({
@@ -93,13 +95,13 @@ class Checkout extends React.Component {
     })
     this.handleNext();
     console.log(this.state)
-  }
+  };
 
   render() {
+
     const { classes } = this.props;
     const { activeStep } = this.state;
     const steps = ["Shipping address", "Payment details", "Review your order"];
-    const orderNumber = 2220;
 
     return (
       <React.Fragment>
@@ -125,7 +127,7 @@ class Checkout extends React.Component {
                     Thank you for your order.
                   </Typography>
                   <Typography variant="subtitle1">
-                    Your order number {orderNumber} is We have emailed your order confirmation, and will
+                    Your order number is We have emailed your order confirmation, and will
                     send you an update when your order has shipped.
                   </Typography>
                   <Button onClick={this.handleBack} className={classes.button}>
@@ -159,6 +161,7 @@ class Checkout extends React.Component {
     );
   }
 }
+
 
 const styles = theme => ({
   appBar: {

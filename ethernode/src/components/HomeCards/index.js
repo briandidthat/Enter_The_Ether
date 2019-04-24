@@ -14,7 +14,6 @@ const handleClick = () => {
 }
 
 const HomeCards = () => (
-
     <React.Fragment>
         <Container>
             <Row>

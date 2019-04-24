@@ -9,17 +9,16 @@ import { Container, Row, Col } from "react-grid-system";
 export class ContactForm extends Component {
 
     state = {
-        firstName: "",
-        lastName: "",
-        email: "",
-        message: ""
+        firstName: " ",
+        lastName: " ",
+        email: " ",
+        message: " "
     }
 
     handleChange = name => event => {
         this.setState({
             [name]: event.target.value,
         });
-
     };
 
     handleFormSubmit = e => {
@@ -27,18 +26,14 @@ export class ContactForm extends Component {
         console.log(this.state);
     };
 
-    onSubmit = e => {
-        e.preventDefault();
-        console.log(this.state)
-    }
-
     render() {
         return (
             <React.Fragment>
                 <br />
                 <Container>
                     <Row>
-                        <Col lg={12}>
+                        <Col lg={6}>
+                            
                             <Card style={styles.card}>
                                 <CardHeader
                                     title="Contact Us"
@@ -101,7 +96,7 @@ export class ContactForm extends Component {
                                     <Button
                                         className="button button-accent"
                                         onClick={this.handleFormSubmit}
-                                    > Submit
+                                    >   Submit
                                     </Button>
                                 </CardContent>
                             </Card>
@@ -116,7 +111,7 @@ export class ContactForm extends Component {
 
 const styles = {
     card: {
-        background: "white",
+        background: "#BDCCD9",
         justifyContent: "center"
     }
 

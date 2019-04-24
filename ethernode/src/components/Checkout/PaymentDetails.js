@@ -26,10 +26,11 @@ class PaymentDetails extends Component {
             <TextField
               required
               id="cvv"
+              name="cvv"
               label="CVV"
               helperText="Three digits on signature strip"
               fullWidth
-              onChange={handleChange('cvv')}
+              onChange={handleChange}
             />
           </Grid>
         </Grid>

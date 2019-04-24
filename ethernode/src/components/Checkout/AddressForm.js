@@ -6,8 +6,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 class AddressForm extends Component {
+  
   render() {
-    const { handleChange } = this.props
+    const { handleChange } = this.props;
+
     return (
       <React.Fragment>
         <Typography variant="h6" gutterBottom>
@@ -32,7 +34,7 @@ class AddressForm extends Component {
               label="Last name"
               fullWidth
               autoComplete="lname"
-              onChange={handleChange("lastName")} 
+              onChange={handleChange("lastName")}
             />
           </Grid>
           <Grid item xs={12}>
@@ -79,10 +81,10 @@ class AddressForm extends Component {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField 
-              id="state" 
-              label="State/Province/Region"  
-              fullWidth 
+            <TextField
+              id="state"
+              label="State/Province/Region"
+              fullWidth
               onChange={handleChange("state")}
             />
           </Grid>

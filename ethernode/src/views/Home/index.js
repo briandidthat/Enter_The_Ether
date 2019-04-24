@@ -14,12 +14,12 @@ import HomeCards from "../../components/HomeCards";
 //and have predefined outputs should be stateless components.(tryna reduce side effects)
 
 const Home = () => (
-  <div className="home">
+  <React.Fragment>
     <Interaction />
     <HomeCards />
     <HomeMap />
     <Features />
-  </div>
+ </React.Fragment>
 );
 
 
