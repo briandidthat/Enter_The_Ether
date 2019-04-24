@@ -1,5 +1,5 @@
 import React from "react";
-import ContactForm from "../../components/Form";
+import ContactForm from "../../components/ContactForm";
 
 //Functional Contact component
 //no functionality on HomePage aside from rendering so it can be a functional component

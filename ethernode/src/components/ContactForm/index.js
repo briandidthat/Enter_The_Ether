@@ -3,31 +3,30 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import TextField from "@material-ui/core/TextField";
-import Button from "../../components/UI/Button";
+import Button from "../UI/Button";
 import { Container, Row, Col } from "react-grid-system";
 
-//Functional 
+//Functional ContactForm Component 
 const ContactForm = () => {
     //Set initial state using a reducer since we have multiple input fields
     const [state, setState] = useReducer(
-    (state, newState) => ({...state, ...newState}),
-    {firstName: " ", lastName: " ", email: " ", message: " "}
+        (state, newState) => ({ ...state, ...newState }),
+        { firstName: " ", lastName: " ", email: " ", message: " " }
     );
-    //destructure values from the state to access easily
+    //Destructure values from the state to access easily
     const { firstName, lastName, email, message } = state;
-
+    //Just testing form submission
     function handleFormSubmit(e) {
         e.preventDefault();
         console.log(state);
     }
-
+    
     return (
         <React.Fragment>
             <br />
             <Container>
                 <Row>
                     <Col lg={6}>
-
                         <Card style={styles.card}>
                             <CardHeader
                                 title="Contact Us"
@@ -41,7 +40,7 @@ const ContactForm = () => {
                                             label="First Name"
                                             fullWidth
                                             value={firstName}
-                                            onChange={e => setState({ firstName: e.target.value})}
+                                            onChange={e => setState({ firstName: e.target.value })}
                                             margin="normal"
                                             variant="outlined"
                                         />
@@ -52,7 +51,7 @@ const ContactForm = () => {
                                             label="Last Name"
                                             value={lastName}
                                             fullWidth
-                                            onChange={e => setState({ lastName: e.target.value})}
+                                            onChange={e => setState({ lastName: e.target.value })}
                                             margin="normal"
                                             variant="outlined"
                                         />
@@ -66,7 +65,7 @@ const ContactForm = () => {
                                             type="email"
                                             fullWidth
                                             value={email}
-                                            onChange={e => setState({ email: e.target.value})}
+                                            onChange={e => setState({ email: e.target.value })}
                                             margin="normal"
                                             variant="outlined"
                                         />
@@ -80,7 +79,7 @@ const ContactForm = () => {
                                             fullWidth
                                             multiline
                                             value={message}
-                                            onChange={e => setState({ message: e.target.value})}
+                                            onChange={e => setState({ message: e.target.value })}
                                             margin="normal"
                                             variant="outlined"
                                         />
@@ -101,32 +100,11 @@ const ContactForm = () => {
     )
 }
 
-    // state = {
-    //     firstName: " ",
-    //     lastName: " ",
-    //     email: " ",
-    //     message: " "
-    // }
-
-    // handleChange = name => event => {
-    //     this.setState({
-    //         [name]: event.target.value,
-    //     });
-    // };
-
-    // handleFormSubmit = e => {
-    //     e.preventDefault();
-    //     console.log(this.state);
-    // };
-
-    
-
 const styles = {
     card: {
-        background: "#BDCCD9",
+        background: "#B1C4B1",
         justifyContent: "center"
     }
-
 };
 
 export default ContactForm;

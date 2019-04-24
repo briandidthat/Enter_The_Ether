@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,7 +13,7 @@ import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
 
 
-class Checkout extends React.Component {
+class Checkout extends Component {
   state = {
     activeStep: 0,
     price: 0,
