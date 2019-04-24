@@ -12,7 +12,6 @@ import AddressForm from "./AddressForm";
 import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
 
-
 class Checkout extends Component {
   state = {
     activeStep: 0,
@@ -25,8 +24,8 @@ class Checkout extends Component {
     city: "",
     state: "",
     country: "",
-    cardNumber: "",
     cardHolder: "",
+    cardNumber: 0,
     expire: 0,
     cvv: 0
   };
