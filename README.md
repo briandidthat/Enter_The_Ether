@@ -1,2 +1,2 @@
 # Enter_The_Ether
-Ethernode web app
+Ethernode.io web application.

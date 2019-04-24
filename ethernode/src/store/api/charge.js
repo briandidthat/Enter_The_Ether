@@ -1,5 +1,3 @@
-import { postWithToken, getWithToken, get } from ".";
-
 const charge = {
     makeCharge(token, tier) {
       return postWithToken(`payment/make`, { token: token, tier: tier });
