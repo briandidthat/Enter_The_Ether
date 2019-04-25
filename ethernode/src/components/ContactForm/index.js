@@ -20,7 +20,7 @@ const ContactForm = () => {
         e.preventDefault();
         console.log(state);
     }
-    
+
     return (
         <React.Fragment>
             <br />

@@ -24,13 +24,13 @@ export default function reducer(state = initialState, action) {
         ...state,
         state: 'none'
       };
-    case actionTypes.CHARGE_GET_TIER_SUCCESS:
+    case actionTypes.GET_TIER_SUCCESS:
       return {
         ...state,
         tier: action.payload.tier,
         paymentInfo: action.payload.paymentInfo
       };
-    case actionTypes.CHARGE_GET_TIERS_SUCCESS:
+    case actionTypes.GET_TIERS_SUCCESS:
       return {
         ...state,
         tiers: action.payload.tiers
