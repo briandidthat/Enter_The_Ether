@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useReducer} from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,196 +12,170 @@ import AddressForm from "./AddressForm";
 import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
 
-class Checkout extends Component {
-  state = {
-    activeStep: 0,
-    price: 0,
-    firstName: "",
-    lastName: "",
-    email: "",
-    address1: "",
-    address2: "",
-    city: "",
-    state: "",
-    country: "",
-    cardHolder: "",
-    cardNumber: 0,
-    expire: 0,
-    cvv: 0
-  };
+const steps = ["Shipping address", "Payment details", "Review your order"]
 
-  //get current step for checkout form to render content accordingly
-  getStepContent = step => {
-    switch (step) {
-      case 0:
-        return <AddressForm
-          //pass handleChange function as props
-          handleChange={this.handleChange}
-        />;
-      case 1:
-        return <PaymentDetails
-          handleChange={this.handleChange}
+function Checkout(props) {
+    //Reducer to go over all state items and spread them 
+    //and add values to an empty state object
+    const [state, setState] = useReducer(
+        (state, newState) => ({ ...state, ...newState }),
+        {address1: "", address2: "", city: "", homeState: "", 
+         country:"", firstName:"", lastName:"", email:"", zip:"",
+         cvv: "", cardHolder:"", cardNumber:"", expire:""
+        }
+    );
+    //Set active step, and function in State
+    const [activeStep, setNext] = useState(0);
 
-        />;
-      case 2:
-        return <Confirm
-          handleSubmit={this.handlesubmit}
-          handleIputChange={this.handleChange}
+    const handleChange = event => {
+        const { name, value } = event.target;
+        setState({
+          [name]: value
+        });
+      };
 
-        />;
-      default:
-        throw new Error("Unknown step");
+    const handleNext = () => {
+        setNext(activeStep + 1)
+    };
+
+    const handleBack = () => {
+        setNext(activeStep - 1)
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        handleNext();
+        console.log(state);
     }
-  };
+    //get current step for checkout form to render content accordingly
+    const getStepContent = step => {
+        switch (step) {
+            case 0:
+                return <AddressForm
+                    handleChange={handleChange}
+                    state={state}
+                    
+                />;
+            case 1:
+                return <PaymentDetails
+                    handleChange={handleChange}
+                    state={state}
+                    
+                />;
+            case 2:
+                return <Confirm
+                    handleSubmit={handleSubmit}
+                    state={state}
+                    
+                />;
+            default:
+                throw new Error("Unknown step");
+        }
+    };
 
-  handleChange = input => e => {
-    this.setState({ [input]: e.target.value });
-  };
-
-
-  handleNext = () => {
-    this.setState({
-      activeStep: this.state.activeStep + 1,
-    });
-  };
-
-  handleBack = () => {
-    this.setState({
-      activeStep: this.state.activeStep - 1,
-    });
-  };
-
-  handleReset = () => {
-    this.setState({
-      activeStep: 0,
-    });
-  };
-
-  handleSubmit = () => {
-    this.setState({
-      activeStep: this.state.activeStep,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      address1: this.state.address1,
-      address2: this.state.address2,
-      city: this.state.city,
-      state: this.state.state,
-      cardNumber: this.state.cardNumber,
-      cardHolder: this.state.cardHolder,
-      expire: this.state.expire,
-      cvv: this.state.cvv
-    })
-    this.handleNext();
-    console.log(this.state)
-  };
-
-  render() {
-
-    const { classes } = this.props;
-    const { activeStep } = this.state;
-    const steps = ["Shipping address", "Payment details", "Review your order"];
+    const { classes } = props;
 
     return (
-      <React.Fragment>
-        <CssBaseline />
-        <main className={classes.layout}>
-          <Paper className={classes.paper}>
-            <Typography component="h1" variant="h4" align="center">
-              Checkout
+        
+        <React.Fragment>
+            <CssBaseline />
+            <main className={classes.layout}>
+                <Paper className={classes.paper}>
+                    <Typography component="h1" variant="h4" align="center">
+                        Checkout
             </Typography>
-            {/* Map through the steps of the step array to display them as labels */}
-            <Stepper activeStep={activeStep} className={classes.stepper}>
-              {steps.map(label => (
-                <Step key={label}>
-                  <StepLabel>{label}</StepLabel>
-                </Step>
-              ))}
-            </Stepper>
-            {/* Ternary Operator to render confirmation text, or allow user to progress through checkout */}
-            <React.Fragment>
-              {activeStep === steps.length ? (
-                <React.Fragment>
-                  <Typography variant="h5" gutterBottom>
-                    Thank you for your order.
-                  </Typography>
-                  <Typography variant="subtitle1">
-                    Your order number is We have emailed your order confirmation, and will
-                    send you an update when your order has shipped.
-                  </Typography>
-                  <Button onClick={this.handleBack} className={classes.button}>
-                    Back
-                  </Button>
-                </React.Fragment>
-              ) : (
-                  <React.Fragment>
-                    {this.getStepContent(activeStep)}
-                    <div className={classes.buttons}>
-                      {activeStep !== 0 && (
-                        <Button onClick={this.handleBack} className={classes.button}>
-                          Back
-                      </Button>
-                      )}
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={activeStep === steps.length - 1 ? this.handleSubmit : this.handleNext}
-                        className={classes.button}
-                      >
-                        {activeStep === steps.length - 1 ? "Place order" : "Next"}
-                      </Button>
-                    </div>
-                  </React.Fragment>
-                )}
-            </React.Fragment>
-          </Paper>
-        </main>
-      </React.Fragment>
+                    {/* Map through the steps of the step array to display them as labels */}
+                    <Stepper activeStep={activeStep} className={classes.stepper}>
+                        {steps.map(label => (
+                            <Step key={label}>
+                                <StepLabel>{label}</StepLabel>
+                            </Step>
+                        ))}
+                    </Stepper>
+                    {/* Ternary Operator to render confirmation text, or allow user to progress through checkout */}
+                    <React.Fragment>
+                        {activeStep === steps.length ? (
+                            <React.Fragment>
+                                <Typography variant="h5" gutterBottom>
+                                    Thank you for your order.
+                                </Typography>
+                                <Typography variant="subtitle1">
+                                    Your order number is We have emailed your order confirmation, and will
+                                    send you an update when your order has shipped.
+                                    </Typography>
+                                <Button onClick={handleBack} className={classes.button}>
+                                    Back
+                                </Button>
+                            </React.Fragment>
+                        ) : (
+                                <React.Fragment>
+                                    {getStepContent(activeStep)}
+                                    <div className={classes.buttons}>
+                                        {activeStep !== 0 && (
+                                            <Button onClick={handleBack} className={classes.button}>
+                                                Back
+                                            </Button>
+                                        )}
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
+                                            className={classes.button}
+                                        >
+                                            {activeStep === steps.length - 1 ? "Place order" : "Next"}
+                                        </Button>
+                                    </div>
+                                </React.Fragment>
+                            )}
+                    </React.Fragment>
+                </Paper>
+            </main>
+        </React.Fragment>
     );
-  }
+
 }
 
 
 const styles = theme => ({
-  appBar: {
-    position: 'relative',
-  },
-  layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2,
-    [theme.breakpoints.up(600 + theme.spacing.unit * 2 * 2)]: {
-      width: 600,
-      marginLeft: 'auto',
-      marginRight: 'auto',
+    appBar: {
+        position: 'relative',
     },
-  },
-  paper: {
-    marginTop: theme.spacing.unit * 3,
-    marginBottom: theme.spacing.unit * 3,
-    padding: theme.spacing.unit * 2,
-    [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
-      marginTop: theme.spacing.unit * 6,
-      marginBottom: theme.spacing.unit * 3,
-      padding: theme.spacing.unit * 3,
+    layout: {
+        width: 'auto',
+        marginLeft: theme.spacing.unit * 2,
+        marginRight: theme.spacing.unit * 2,
+        [theme.breakpoints.up(600 + theme.spacing.unit * 2 * 2)]: {
+            width: 600,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+        },
     },
-  },
-  stepper: {
-    padding: `${theme.spacing.unit * 3}px 0 ${theme.spacing.unit * 5}px`,
-  },
-  buttons: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  button: {
-    marginTop: theme.spacing.unit * 3,
-    marginLeft: theme.spacing.unit,
-  },
+    paper: {
+        marginTop: theme.spacing.unit * 3,
+        marginBottom: theme.spacing.unit * 3,
+        padding: theme.spacing.unit * 2,
+        [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
+            marginTop: theme.spacing.unit * 6,
+            marginBottom: theme.spacing.unit * 3,
+            padding: theme.spacing.unit * 3,
+        },
+    },
+    stepper: {
+        padding: `${theme.spacing.unit * 3}px 0 ${theme.spacing.unit * 5}px`,
+    },
+    buttons: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+    },
+    button: {
+        marginTop: theme.spacing.unit * 3,
+        marginLeft: theme.spacing.unit,
+    },
 });
 
 
 Checkout.propTypes = {
-  classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Checkout);
