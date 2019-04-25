@@ -8,7 +8,7 @@ import { Container, Row, Col } from "react-grid-system";
 
 //Functional ContactForm Component 
 const ContactForm = () => {
-    //Set initial state using a reducer since we have multiple input fields
+    
     const [state, setState] = useReducer(
         (state, newState) => ({ ...state, ...newState }),
         { firstName: " ", lastName: " ", email: " ", message: " " }

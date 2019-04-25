@@ -3,9 +3,8 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
-
 function PaymentDetails(props) {
-  const { handleChange } = props;
+  const { state, handleChange } = props;
   
   return (
     <React.Fragment>
@@ -14,22 +13,24 @@ function PaymentDetails(props) {
       </Typography>
       <Grid container spacing={24}>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardName" label="Name on card" onChange={handleChange('cardHolder')} fullWidth />
+          <TextField required id="cardName" label="Name on card" name="cardHolder" value={state.cardHolder} onChange={handleChange} fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardNumber" label="Card number" onChange={handleChange('cardNumber')} fullWidth />
+          <TextField required id="cardNumber" label="Card number" name="cardNumber" value={state.cardNumber} onChange={handleChange} fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" label="Expiry date" onChange={handleChange('expDate')} fullWidth />
+          <TextField required id="expDate" label="Expiry date" name="expire" value={state.expire} onChange={handleChange} fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
             required
             id="cvv"
             label="CVV"
+            name="cvv"
+            value={state.cvv}
             helperText="Three digits on signature strip"
             fullWidth
-            onChange={handleChange('cvv')}
+            onChange={handleChange}
           />
         </Grid>
       </Grid>
