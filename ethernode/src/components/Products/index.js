@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import icons from "../../assets";
 import Button from "../../components/UI/Button";
 import { Col, Row, Container } from "react-grid-system";
@@ -12,12 +12,14 @@ import Typography from "@material-ui/core/Typography";
 //Component imports
 import Checkout from "../../components/Checkout";
 
-class Products extends Component {
 
+
+class Products extends Component {
     state = {
         open: false,
         scroll: 'paper',
     }
+
 
     handleClickOpen = scroll => () => {
         this.setState({ open: true, scroll });
@@ -28,7 +30,9 @@ class Products extends Component {
     };
 
     render() {
+
         return (
+     
             <React.Fragment>
                 <Container>
                     <Row>

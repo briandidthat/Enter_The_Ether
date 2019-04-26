@@ -1,6 +1,0 @@
-// Charge
-export const GET_TIER = "GET_TIER";
-export const GET_TIERS = "GET_TIERS";
-export const SUBMIT_CHARGE = "SUBMIT_CHARGE";
-export const CHARGE_SUBMIT_CHARGE_SUCCESS = "SUBMIT_CHARGE_SUCCESS";
-export const CHARGE_SUBMIT_CHARGE_ERROR = "SUBMIT_CHARGE_ERROR";

@@ -1,4 +1,4 @@
-import React, { useState, useReducer} from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -15,23 +15,16 @@ import Confirm from "./Confirm";
 const steps = ["Shipping address", "Payment details", "Review your order"]
 
 function Checkout(props) {
-    //Reducer to go over all state items and spread them 
-    //and add values to an empty state object
-    const [state, setState] = useReducer(
-        (state, newState) => ({ ...state, ...newState }),
-        {address1: "", address2: "", city: "", homeState: "", 
-         country:"", firstName:"", lastName:"", email:"", zip:"",
-         cvv: "", cardHolder:"", cardNumber:"", expire:""
-        }
-    );
     //Set active step, and function in State
+    const { classes, setState, state } = props;
+
     const [activeStep, setNext] = useState(0);
 
     const handleChange = event => {
-        const { name, value } = event.target;
+      const { name, value } = event.target;
         setState({
-          [name]: value
-        });
+            [name]: value
+        })
       };
 
     const handleNext = () => {
@@ -44,8 +37,8 @@ function Checkout(props) {
 
     const handleSubmit = e => {
         e.preventDefault();
-        handleNext();
         console.log(state);
+        handleNext();
     }
     //get current step for checkout form to render content accordingly
     const getStepContent = step => {
@@ -53,27 +46,20 @@ function Checkout(props) {
             case 0:
                 return <AddressForm
                     handleChange={handleChange}
-                    state={state}
-                    
                 />;
             case 1:
                 return <PaymentDetails
                     handleChange={handleChange}
-                    state={state}
-                    
                 />;
             case 2:
                 return <Confirm
                     handleSubmit={handleSubmit}
-                    state={state}
-                    
                 />;
             default:
                 throw new Error("Unknown step");
         }
     };
 
-    const { classes } = props;
 
     return (
         
