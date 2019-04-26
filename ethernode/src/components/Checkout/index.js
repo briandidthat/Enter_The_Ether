@@ -46,20 +46,22 @@ function Checkout(props) {
             case 0:
                 return <AddressForm
                     handleChange={handleChange}
+                    state={state}
                 />;
             case 1:
                 return <PaymentDetails
                     handleChange={handleChange}
+                    state={state}
                 />;
             case 2:
                 return <Confirm
                     handleSubmit={handleSubmit}
+                    state={state}
                 />;
             default:
                 throw new Error("Unknown step");
         }
     };
-
 
     return (
         

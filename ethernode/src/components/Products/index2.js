@@ -25,9 +25,23 @@ function Products(props) {
         context.setState({ open: false });
     };
 
-   
+    // state = {
+    //     open: false,
+    //     scroll: 'paper',
+    // }
+
+
+    // handleClickOpen = scroll => () => {
+    //     this.setState({ open: true, scroll });
+    // };
+
+    // handleClose = () => {
+    //     this.setState({ open: false });
+    // };
+
+
     return (
-        <ShopContext.Consumer> 
+        <ShopContext.Consumer>
             {context => (
                 <React.Fragment>
                     <Container>
@@ -45,7 +59,7 @@ function Products(props) {
                                                 OpenRPC, nodeJS, http2<br />
                                                 ETC Mainet and Kotti Ready<br />
                                                 Custom Case and AC adapter<br />
-                                                   <h4>{product.price}</h4> 
+                                                <h4>{product.price}</h4>
                                             </Typography>
                                             <CardActions>
                                                 <Col lg={12}>
@@ -72,7 +86,7 @@ function Products(props) {
                         aria-labelledby="scroll-dialog-title"
                     >
                         <Checkout />
-                    </Dialog> 
+                    </Dialog>
                 </React.Fragment>
             )}
         </ShopContext.Consumer>
