@@ -12,6 +12,7 @@ import AddressForm from "./AddressForm";
 import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
 
+
 const steps = ["Shipping address", "Payment details", "Review your order"]
 
 function Checkout(props) {

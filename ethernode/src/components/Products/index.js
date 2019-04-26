@@ -1,6 +1,6 @@
-import React, { Component, useContext } from "react";
+import React, { useContext, useState } from "react";
 import icons from "../../assets";
-import Button from "../../components/UI/Button";
+import Button from "../UI/Button";
 import { Col, Row, Container } from "react-grid-system";
 //Card imports
 import Card from "@material-ui/core/Card";
@@ -10,123 +10,80 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Dialog from "@material-ui/core/Dialog";
 import Typography from "@material-ui/core/Typography";
 //Component imports
-import Checkout from "../../components/Checkout";
+import Checkout from "../Checkout";
+import ShopContext from "../../context/shop-context";
 
 
 
-class Products extends Component {
-    state = {
-        open: false,
-        scroll: 'paper',
-    }
+function Products(props) {
+    const context = useContext(ShopContext);
 
-
-    handleClickOpen = scroll => () => {
-        this.setState({ open: true, scroll });
+    const [state, setState] = useState({ open: false });
+    
+    const handleClickOpen = () => {
+        setState({ open: true});
+    };
+    
+    const handleClose = () => {
+        setState({ open: false });
     };
 
-    handleClose = () => {
-        this.setState({ open: false });
-    };
 
-    render() {
-
-        return (
-     
-            <React.Fragment>
-                <Container>
-                    <Row>
-                        <Col sm={4}>
-                            <Card>
-                                <CardHeader
-                                    title="250 GB"
-                                />
-                                <CardContent>
-                                    <img src={icons.ethernodeLogo} alt="ethernode icon" style={{ maxWidth: "8em" }} />
-                                    <Typography variant="body1" color="textPrimary">
-                                        EnOS Custom Linux Kernel<br />
-                                        OpenRPC, nodeJS, http2<br />
-                                        ETC Mainet and Kotti Ready<br />
-                                        Custom Case and AC adapter<br />
-                                    </Typography>
-                                    <CardActions>
-                                        <Col lg={12}>
-                                            <Button className="button button-accent"
-                                                onClick={this.handleClickOpen("paper")}
-                                            >
-                                                Preorder
-                                        </Button>
-                                        </Col>
-                                    </CardActions>
-                                </CardContent>
-                            </Card>
-                        </Col>
-                        <Col sm={4}>
-
-                            <Card>
-                                <CardHeader
-                                    title="1 TB"
-                                />
-                                <CardContent>
-                                    <img src={icons.ethernodeLogo} alt="ethernode icon" style={{ maxWidth: "8em" }} />
-                                    <Typography variant="body1" color="textPrimary">
-                                        EnOS Custom Linux Kernel<br />
-                                        OpenRPC, nodeJS, http2<br />
-                                        ETC Mainet and Kotti Ready<br />
-                                        Custom Case and AC adapter<br />
-                                    </Typography>
-                                    <CardActions>
-                                        <Col lg={12}>
-                                            <Button className="button button-accent"
-                                                onClick={this.handleClickOpen("paper")}
-                                            >
-                                                Preorder
-                                        </Button>
-                                        </Col>
-                                    </CardActions>
-                                </CardContent>
-                            </Card>
-                        </Col>
-                        <Col sm={4}>
-                            <Card className="">
-                                <CardHeader
-                                    title="2 TB"
-                                />
-                                <CardContent>
-                                    <img src={icons.ethernodeLogo} alt="ethernode icon" style={{ maxWidth: "8em" }} />
-                                    <Typography variant="body1" color="textPrimary">
-                                        EnOS Custom Linux Kernel<br />
-                                        OpenRPC, nodeJS, http2<br />
-                                        ETC Mainet and Kotti Ready<br />
-                                        Custom Case and AC adapter<br />
-                                    </Typography>
-                                    <CardActions>
-                                        <Col lg={12}>
-                                            <Button className="button button-accent"
-                                                onClick={this.handleClickOpen("paper")}
-                                            >
-                                                Preorder
-                                        </Button>
-                                        </Col>
-                                    </CardActions>
-                                </CardContent>
-                            </Card>
-                        </Col>
-                    </Row>
-                    <br />
-                    <br />
-                </Container>
-                <Dialog
-                    open={this.state.open}
-                    onClose={this.handleClose}
-                    scroll={this.state.scroll}
-                    aria-labelledby="scroll-dialog-title"
-                >
-                    <Checkout />
-                </Dialog>
-            </React.Fragment>
-        );
-    };
-}
+    return (
+        <ShopContext.Consumer>
+            {context => (
+                <React.Fragment>
+                    <Container>
+                        <Row>
+                            {context.products.map(product => (
+                                <Col sm={4}>
+                                    <Card key={product.id}>
+                                        <CardHeader
+                                            title={product.desc}
+                                        />
+                                        <CardContent>
+                                            <img src={icons.ethernodeLogo} alt="ethernode icon" style={{ maxWidth: "8em" }} />
+                                            <Typography variant="body1" color="textPrimary">
+                                                EnOS Custom Linux Kernel<br />
+                                                OpenRPC, nodeJS, http2<br />
+                                                ETC Mainet and Kotti Ready<br />
+                                                Custom Case and AC adapter<br />
+                                                <h4>{product.price}</h4>
+                                            </Typography>                                     
+                                            <CardActions>
+                                                <Col lg={12}>
+                                                    <Button className="button button-accent"
+                                                        id={product.id}
+                                                        onClick={handleClickOpen}
+                                                    >
+                                                        Preorder
+                                                    </Button>
+                                                </Col>
+                                            </CardActions>
+                                        </CardContent>
+                                    </Card>
+                                </Col>
+                                
+                            ))}
+                        </Row>
+                        <br />
+                        <br />
+                    </Container>
+                    <Dialog
+                        open={state.open}
+                        onClick={handleClose}
+                        aria-labelledby="scroll-dialog-title"
+                    >
+                      {/* <Checkout
+                        
+                      
+                      /> */}
+                      <h1>Hi</h1>
+                    </Dialog>
+                </React.Fragment>
+            )}
+        </ShopContext.Consumer>
+    );
+};
 
 export default Products;

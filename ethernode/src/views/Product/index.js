@@ -1,6 +1,6 @@
 import React from "react";
 import About from "../../components/About";
-import Products from "../../components/Products/index2";
+import Products from "../../components/Products/index";
 
 //Functional Product component
 //no functionality on HomePage aside from rendering so it can be a functional component
