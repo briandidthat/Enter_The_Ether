@@ -11,7 +11,7 @@ import Products from "../../components/Products/index";
 //Pure functions that accept no arguments,
 //and have predefined outputs should be stateless components.(tryna reduce side effects)
 
-const Product = () => (
+const Product = props => (
     <React.Fragment>
         <About />
         <Products />

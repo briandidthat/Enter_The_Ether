@@ -10,7 +10,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Dialog from "@material-ui/core/Dialog";
 import Typography from "@material-ui/core/Typography";
 //Component imports
-import Checkout from "../Checkout";
+//import Checkout from "../Checkout";
 import ShopContext from "../../context/shop-context";
 
 
@@ -20,14 +20,14 @@ function Products(props) {
 
     const [state, setState] = useState({ open: false });
     
-    const handleClickOpen = () => {
+    const handleClickOpen = id => {
         setState({ open: true});
+        context.addProductToCart(id);
     };
     
     const handleClose = () => {
         setState({ open: false });
     };
-
 
     return (
         <ShopContext.Consumer>
@@ -36,8 +36,8 @@ function Products(props) {
                     <Container>
                         <Row>
                             {context.products.map(product => (
-                                <Col sm={4}>
-                                    <Card key={product.id}>
+                                <Col sm={4} key={product.id}> 
+                                    <Card>
                                         <CardHeader
                                             title={product.desc}
                                         />
@@ -48,7 +48,7 @@ function Products(props) {
                                                 OpenRPC, nodeJS, http2<br />
                                                 ETC Mainet and Kotti Ready<br />
                                                 Custom Case and AC adapter<br />
-                                                <h4>{product.price}</h4>
+                                                {product.price}
                                             </Typography>                                     
                                             <CardActions>
                                                 <Col lg={12}>
@@ -63,8 +63,7 @@ function Products(props) {
                                         </CardContent>
                                     </Card>
                                 </Col>
-                                
-                            ))}
+                            ))}                    
                         </Row>
                         <br />
                         <br />
