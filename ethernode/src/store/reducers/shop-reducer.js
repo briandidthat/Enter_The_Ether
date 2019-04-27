@@ -1,10 +1,10 @@
-import { ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART } from '../actions';
+import { ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART } from "../actions/actionTypes";
 
 const initialState = {
   products: [
-    { id:"1", name: "Starter", desc: "250GB", price: "$299.99" },
-    { id:"2", name: "Product 2", desc: "Toddler Node", price: "$399.99" },
-    { id:"3", name: "Product 3", desc: "Gentlemen Node", price: "$629.99" },
+    { id: "1", name: "Starter", desc: "500GB", price: "$399.99" },
+    { id: "2", name: "Advanced", desc: "1TB", price: "$499.99" },
+    { id: "3", name: "BOSS", desc: "2TB", price: "$629.99" }
   ],
   cart: []
 };
