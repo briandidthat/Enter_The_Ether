@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,21 +12,13 @@ import AddressForm from "./AddressForm";
 import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
 
-import StoreContext from "../../context/shop-context";
+const steps = ["Shipping address", "Payment details", "Review your order"]
 
 function Checkout(props) {
   //Set active step, and function in State
-  const {context} = useContext(StoreContext);
-  const { classes, setState, state } = props;
+  const { classes, state } = props;
 
   const [activeStep, setNext] = useState(0);
-
-  const handleChange = event => {
-    const { name, value } = event.target;
-    setState({
-      [name]: value
-    });
-  };
 
   const handleNext = () => {
     setNext(activeStep + 1);
@@ -38,18 +30,17 @@ function Checkout(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(state);
     handleNext();
   };
   //get current step for checkout form to render content accordingly
   const getStepContent = step => {
     switch (step) {
       case 0:
-        return <AddressForm handleChange={handleChange} state={state} />;
+        return <AddressForm />;
       case 1:
-        return <PaymentDetails handleChange={handleChange} state={state} />;
+        return <PaymentDetails />;
       case 2:
-        return <Confirm handleSubmit={handleSubmit} state={state} />;
+        return <Confirm handleSubmit={handleSubmit} />;
       default:
         throw new Error("Unknown step");
     }
@@ -65,7 +56,7 @@ function Checkout(props) {
           </Typography>
           {/* Map through the steps of the step array to display them as labels */}
           <Stepper activeStep={activeStep} className={classes.stepper}>
-            {context.steps.map(label => (
+            {steps.map(label => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
               </Step>
@@ -132,12 +123,8 @@ const styles = theme => ({
     }
   },
   paper: {
-    marginTop: theme.spacing.unit * 3,
-    marginBottom: theme.spacing.unit * 3,
     padding: theme.spacing.unit * 2,
     [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
-      marginTop: theme.spacing.unit * 6,
-      marginBottom: theme.spacing.unit * 3,
       padding: theme.spacing.unit * 3
     }
   },

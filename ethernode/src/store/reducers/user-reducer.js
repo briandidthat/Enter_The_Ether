@@ -18,7 +18,7 @@ const initialState = {
   orderNumber: 0,
 };
 
-export default (state = initialState, action) => {
+export default function userReducer(state = initialState, action) {
   switch(action.type) {
     case actionTypes.SAVE_ORDER:
       return {
