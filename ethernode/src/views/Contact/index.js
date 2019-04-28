@@ -10,7 +10,7 @@ import ContactForm from "../../components/ContactForm";
 //Pure functions that accept no arguments,
 //and have predefined outputs should be stateless components.(tryna reduce side effects)
 
-const Contact = () => (
+const Contact = props => (
       <React.Fragment>
           <ContactForm />
       </React.Fragment>

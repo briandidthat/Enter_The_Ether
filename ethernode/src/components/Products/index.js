@@ -3,6 +3,7 @@ import icons from "../../assets";
 import Button from "../UI/Button";
 import { Col, Row, Container } from "react-grid-system";
 //Card imports
+import Checkout from "../Checkout";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
@@ -18,9 +19,9 @@ function Products() {
 
   const [state, setState] = useState({ open: false });
 
-  const handleClickOpen = id => {
+  const handleClickOpen = product => {
     setState({ open: true });
-    context.addProductToCart(id);
+    context.addProductToCart.bind(this, product);
   };
 
   const handleClose = () => {
@@ -75,14 +76,10 @@ function Products() {
           </Container>
           <Dialog
             open={state.open}
-            onClick={handleClose}
+            onClose={handleClose}
             aria-labelledby="scroll-dialog-title"
           >
-            {/* <Checkout
-                        
-                      
-                      /> */}
-            <h1>Hi</h1>
+            <Checkout />
           </Dialog>
         </React.Fragment>
       )}

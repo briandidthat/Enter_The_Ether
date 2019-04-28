@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -7,17 +7,11 @@ import Button from "../UI/Button";
 import { Container, Row, Col } from "react-grid-system";
 
 //Functional ContactForm Component
-function ContactForm() {
-  
-  function handleFormSubmit(e) {
-    e.preventDefault();
-    console.log("state");
-  }
+const ContactForm = props => {
 
   return (
     <React.Fragment>
       <br />
-
       <Container>
         <Row>
           <Col lg={6}>
@@ -33,8 +27,8 @@ function ContactForm() {
                       name="firstName"
                       margin="normal"
                       variant="outlined"
-                      // value={state.firstName}
-                      // onChange={dispatch}
+                      //value={context.state.firstName}
+                      // onChange={() => dispatch()}
                     />
                   </Col>
                   <Col md={6}>
@@ -82,7 +76,7 @@ function ContactForm() {
                 </Row>
                 <Button
                   className="button button-accent"
-                  onClick={handleFormSubmit}
+                  //onClick={() => context.dispatch({type: SEND_MESSAGE})}
                 >
                   {" "}
                   Submit
