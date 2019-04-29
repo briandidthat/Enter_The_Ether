@@ -11,21 +11,23 @@ import Typography from "@material-ui/core/Typography";
 import AddressForm from "./AddressForm";
 import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
-import  userReducer from "../../store/reducers/user-reducer";
 import initialState from "../../context/GlobalState";
+
 const steps = ["Shipping address", "Payment details", "Review your order"];
 
 function Checkout(props) {
   //Reducer to go over all state items and spread them
   //and add values to an empty state object
-  const [state, dispatch] = useReducer(userReducer, initialState)
-
+  const [state , setState] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    {...initialState}
+  );
   //Set active step, and function in State
   const [activeStep, setNext] = useState(0);
 
   const handleChange = event => {
     const { name, value } = event.target;
-    dispatch({ type: "SEND_MESSAGE",
+    setState({
       [name]: value
     });
   };
@@ -40,7 +42,7 @@ function Checkout(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    handleNext()
+    handleNext();
     console.log(state);
   };
   //get current step for checkout form to render content accordingly

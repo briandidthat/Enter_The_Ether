@@ -7,7 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 function AddressForm(props) {
   const { state , handleChange } = props;
-        
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -18,9 +18,9 @@ function AddressForm(props) {
           <TextField
             required
             id="firstName"
-            name="firstName"
+            name="userFirst"
             label="First name"
-            value={state.firstName}
+            value={state.userFirst}
             fullWidth
             autoComplete="fname"
             onChange={handleChange}
@@ -30,9 +30,9 @@ function AddressForm(props) {
           <TextField
             required
             id="lastName"
-            name="lastName"
+            name="userLast"
             label="Last name"
-            value={state.lastName}
+            value={state.userLast}
             fullWidth
             autoComplete="lname"
             onChange={handleChange}
@@ -43,8 +43,8 @@ function AddressForm(props) {
             required
             id="email"
             label="Email"
-            name="email"
-            value={state.email}
+            name="userEmail"
+            value={state.userEmail}
             fullWidth
             autoComplete="email"
             onChange={handleChange}
@@ -56,7 +56,7 @@ function AddressForm(props) {
             id="address1"
             label="Address line 1"
             name="address1"
-            value={state.address1}
+            value={state.billing.address1}
             fullWidth
             autoComplete="billing address-line1"
             onChange={handleChange}
@@ -67,7 +67,7 @@ function AddressForm(props) {
             id="address2"
             label="Address line 2"
             name="address2"
-            value={state.address2}
+            value={state.billing.address2}
             fullWidth
             autoComplete="billing address-line2"
             onChange={handleChange}
@@ -79,7 +79,7 @@ function AddressForm(props) {
             id="city"
             label="City"
             name="city"
-            value={state.city}
+            value={state.billing.city}
             fullWidth
             autoComplete="billing address-level2"
             onChange={handleChange}
@@ -91,7 +91,7 @@ function AddressForm(props) {
             label="State/Province/Region"
             fullWidth
             name="homeState"
-            value={state.homeState}
+            value={state.billing.homeState}
             onChange={handleChange}
           />
         </Grid>
@@ -102,7 +102,7 @@ function AddressForm(props) {
             label="Zip / Postal code"
             fullWidth
             name="zip"
-            value={state.zip}
+            value={state.billing.zip}
             autoComplete="billing postal-code"
             onChange={handleChange}
           />
@@ -113,7 +113,7 @@ function AddressForm(props) {
             id="country"
             label="Country"
             name="country"
-            value={state.country}
+            value={state.billing.country}
             fullWidth
             autoComplete="billing country"
             onChange={handleChange}

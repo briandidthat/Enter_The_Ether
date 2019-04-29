@@ -60,7 +60,6 @@ const newUser = (user, state) => {
 }
 
 
-
 export default function userReducer(state, action) {
     switch (action.type) {
       case "MAKE_ORDER":
