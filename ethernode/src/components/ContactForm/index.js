@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useReducer } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -7,7 +7,27 @@ import Button from "../UI/Button";
 import { Container, Row, Col } from "react-grid-system";
 
 //Functional ContactForm Component
-const ContactForm = props => {
+const ContactForm = () => {
+  const [state, setState] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    {
+      firstName: "",
+      lastName: "",
+      email: "",
+      message: ""
+    }
+  );
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setState({
+      [name]: value
+    });
+  };
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(state);
+  };
 
   return (
     <React.Fragment>
@@ -27,8 +47,8 @@ const ContactForm = props => {
                       name="firstName"
                       margin="normal"
                       variant="outlined"
-                      //value={context.state.firstName}
-                      // onChange={() => dispatch()}
+                      value={state.firstName}
+                      onChange={handleChange}
                     />
                   </Col>
                   <Col md={6}>
@@ -39,8 +59,8 @@ const ContactForm = props => {
                       name="lastName"
                       margin="normal"
                       variant="outlined"
-                      // value={state.lastName}
-                      // onChange={dispatch}
+                      value={state.lastName}
+                      onChange={handleChange}
                     />
                   </Col>
                 </Row>
@@ -54,8 +74,8 @@ const ContactForm = props => {
                       name="email"
                       margin="normal"
                       variant="outlined"
-                      // value={state.email}
-                      // onChange={dispatch}
+                      value={state.email}
+                      onChange={handleChange}
                     />
                   </Col>
                 </Row>
@@ -69,15 +89,12 @@ const ContactForm = props => {
                       name="message"
                       margin="normal"
                       variant="outlined"
-                      // value={state.message}
-                      // onChange={dispatch}
+                      value={state.message}
+                      onChange={handleChange}
                     />
                   </Col>
                 </Row>
-                <Button
-                  className="button button-accent"
-                  //onClick={() => context.dispatch({type: SEND_MESSAGE})}
-                >
+                <Button className="button button-accent" onClick={handleSubmit}>
                   {" "}
                   Submit
                 </Button>
@@ -86,11 +103,11 @@ const ContactForm = props => {
           </Col>
         </Row>
       </Container>
+      )}
       <br />
     </React.Fragment>
-
   );
-}
+};
 
 const styles = {
   card: {

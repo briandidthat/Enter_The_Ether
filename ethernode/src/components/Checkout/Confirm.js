@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -11,77 +11,76 @@ import ShopContext from "../../context/shop-context";
 const addresses = ["1 Stoner Drive", "Reactville", "Anytown", "99999", "USA"];
 
 const Confirm = props => {
+  const context = useContext(ShopContext);
   const { classes } = props;
 
   return (
     <ShopContext.Consumer>
-      {context => (
-    <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Order summary
-      </Typography>
-      <List disablePadding>
-        {context.products.map(product => (
-          <ListItem className={classes.listItem} key={product.id}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
-          </ListItem>
-        ))}
-        <ListItem className={classes.listItem}>
-          <ListItemText primary="Total" />
-          <Typography variant="subtitle1" className={classes.total}>
-            $1829
+      {() => (
+        <React.Fragment>
+          <Typography variant="h6" gutterBottom>
+            Order summary
           </Typography>
-        </ListItem>
-      </List>
-      <Grid container spacing={16}>
-        <Grid item xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
-            Shipping
-          </Typography>
-          <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addresses.join(', ')}</Typography>
-        </Grid>
-        <Grid item container direction="column" xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
-            Payment details
-          </Typography>
-          <Grid container>
-            {context.paymentDetails.map(payment => (
-              <React.Fragment key={payment.name}>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.name}</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.detail}</Typography>
-                </Grid>
-              </React.Fragment>
+          <List disablePadding>
+            {context.products.map(product => (
+              <ListItem className={classes.listItem} key={product.id}>
+                <ListItemText primary={product.name} secondary={product.desc} />
+                <Typography variant="body2">{product.price}</Typography>
+              </ListItem>
             ))}
+            <ListItem className={classes.listItem}>
+              <ListItemText primary="Total" />
+              <Typography variant="subtitle1" className={classes.total}>
+                $1829
+              </Typography>
+            </ListItem>
+          </List>
+          <Grid container spacing={16}>
+            <Grid item xs={12} sm={6}>
+              <Typography variant="h6" gutterBottom className={classes.title}>
+                Shipping
+              </Typography>
+              <Typography gutterBottom>John Smith</Typography>
+              <Typography gutterBottom>{addresses.join(", ")}</Typography>
+            </Grid>
+            <Grid item container direction="column" xs={12} sm={6}>
+              <Typography variant="h6" gutterBottom className={classes.title}>
+                Payment details
+              </Typography>
+              <Grid container>
+                {context.paymentDetails.map(payment => (
+                  <React.Fragment key={payment.name}>
+                    <Grid item xs={6}>
+                      <Typography gutterBottom>{payment.name}</Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography gutterBottom>{payment.detail}</Typography>
+                    </Grid>
+                  </React.Fragment>
+                ))}
+              </Grid>
+            </Grid>
           </Grid>
-        </Grid>
-      </Grid>
-    </React.Fragment>
-    )}
+        </React.Fragment>
+      )}
     </ShopContext.Consumer>
   );
-}
+};
 
 const styles = theme => ({
   listItem: {
-    padding: `${theme.spacing.unit}px 0`,
+    padding: `${theme.spacing.unit}px 0`
   },
   total: {
-    fontWeight: '700',
+    fontWeight: "700"
   },
   title: {
-    marginTop: theme.spacing.unit * 2,
-  },
+    marginTop: theme.spacing.unit * 2
+  }
 });
 
-
-
 Confirm.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Confirm);

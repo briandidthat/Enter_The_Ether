@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,13 +12,40 @@ import AddressForm from "./AddressForm";
 import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
 
-const steps = ["Shipping address", "Payment details", "Review your order"]
+const steps = ["Shipping address", "Payment details", "Review your order"];
 
 function Checkout(props) {
-  //Set active step, and function in State
-  const { classes, state } = props;
+  //Reducer to go over all state items and spread them
+  //and add values to an empty state object
+  const [state, setState] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    {
+      address1: "",
+      address2: "",
+      city: "",
+      homeState: "",
+      country: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      zip: "",
+      cvv: "",
+      cardHolder: "",
+      cardNumber: "",
+      expire: "",
+      cart: []
+    }
+  );
 
+  //Set active step, and function in State
   const [activeStep, setNext] = useState(0);
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setState({
+      [name]: value
+    });
+  };
 
   const handleNext = () => {
     setNext(activeStep + 1);
@@ -31,20 +58,23 @@ function Checkout(props) {
   const handleSubmit = e => {
     e.preventDefault();
     handleNext();
+    console.log(state);
   };
   //get current step for checkout form to render content accordingly
   const getStepContent = step => {
     switch (step) {
       case 0:
-        return <AddressForm />;
+        return <AddressForm handleChange={handleChange} state={state} />;
       case 1:
-        return <PaymentDetails />;
+        return <PaymentDetails handleChange={handleChange} state={state} />;
       case 2:
-        return <Confirm handleSubmit={handleSubmit} />;
+        return <Confirm handleSubmit={handleSubmit} state={state} />;
       default:
         throw new Error("Unknown step");
     }
   };
+
+  const { classes } = props;
 
   return (
     <React.Fragment>
