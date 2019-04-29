@@ -24,7 +24,7 @@ const initialState = {
       cvv: 0,
       expiration: 0,
       orderTotal: 0,
-      orderStatus: "",
+      orderStatus: ""
     }
   ],
   billing: [
