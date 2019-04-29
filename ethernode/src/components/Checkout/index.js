@@ -49,7 +49,7 @@ function Checkout(props) {
   const getStepContent = step => {
     switch (step) {
       case 0:
-        return <AddressForm handleChange={handleChange} state={state} />;
+        return <AddressForm handleChange={handleChange} setState={setState} state={state} />;
       case 1:
         return <PaymentDetails handleChange={handleChange} state={state} />;
       case 2:

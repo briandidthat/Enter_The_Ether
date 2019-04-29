@@ -1,12 +1,19 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import React from "react";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import DiffBilling from "./Diffbilling";
 
 function AddressForm(props) {
-  const { state , handleChange } = props;
+  const { state, handleChange, setState } = props;
+  
+  const diffBilling = () => {
+    setState({ diffShipping: true });
+    console.log(state)
+  }
+
 
   return (
     <React.Fragment>
@@ -55,8 +62,8 @@ function AddressForm(props) {
             required
             id="address1"
             label="Address line 1"
-            name="address1"
-            value={state.billing.address1}
+            name="shippingAddress1"
+            value={state.shippingAddress1}
             fullWidth
             autoComplete="billing address-line1"
             onChange={handleChange}
@@ -66,8 +73,8 @@ function AddressForm(props) {
           <TextField
             id="address2"
             label="Address line 2"
-            name="address2"
-            value={state.billing.address2}
+            name="shippingAddress2"
+            value={state.shippingAddress2}
             fullWidth
             autoComplete="billing address-line2"
             onChange={handleChange}
@@ -78,8 +85,8 @@ function AddressForm(props) {
             required
             id="city"
             label="City"
-            name="city"
-            value={state.billing.city}
+            name="shippingCity"
+            value={state.shippingCity}
             fullWidth
             autoComplete="billing address-level2"
             onChange={handleChange}
@@ -87,11 +94,11 @@ function AddressForm(props) {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            id="homeState"
+            id="shippingState"
             label="State/Province/Region"
             fullWidth
-            name="homeState"
-            value={state.billing.homeState}
+            name="shippingState"
+            value={state.shippingState}
             onChange={handleChange}
           />
         </Grid>
@@ -101,8 +108,8 @@ function AddressForm(props) {
             id="zip"
             label="Zip / Postal code"
             fullWidth
-            name="zip"
-            value={state.billing.zip}
+            name="shippingZip"
+            value={state.shippingZip}
             autoComplete="billing postal-code"
             onChange={handleChange}
           />
@@ -113,7 +120,7 @@ function AddressForm(props) {
             id="country"
             label="Country"
             name="country"
-            value={state.billing.country}
+            value={state.shippingCountry}
             fullWidth
             autoComplete="billing country"
             onChange={handleChange}
@@ -121,14 +128,26 @@ function AddressForm(props) {
         </Grid>
         <Grid item xs={12}>
           <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
+            control={
+              <Checkbox
+                color="secondary"
+                name="saveAddress"
+                value="yes"
+                onClick={() => diffBilling()}
+              />
+            }
             label="Use this same address for billing?"
           />
         </Grid>
+          {state.diffShipping === true && 
+            <DiffBilling
+              state={state}
+              handleChange={handleChange}
+            />
+          }
       </Grid>
     </React.Fragment>
   );
 }
-
 
 export default AddressForm;

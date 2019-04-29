@@ -6,6 +6,19 @@ const initialState = {
   userFirst: "",
   userLast: "",
   message: "",
+  diffBilling: false,
+  billingAddress1: "",
+  billingAddress2: "",
+  billingCity: "",
+  billingState: "",
+  billingZip: "",
+  billingCountry: "",
+  shippingAddress1: "",
+  shippingAddress2: "",
+  shippingCity: "",
+  shippingState: "",
+  shippingZip: "",
+  shippingcountry: "",
   order: [
     {
       orderId: 0,
@@ -27,26 +40,6 @@ const initialState = {
       orderStatus: ""
     }
   ],
-  billing: [
-    {
-      address1: "",
-      address2: "",
-      city: "",
-      homeState: "",
-      zip: 0,
-      country: ""
-    }
-  ],
-  shipping: [
-    {
-      address1: "",
-      address2: "",
-      city: "",
-      state: "",
-      zip: 0,
-      country: ""
-    }
-  ]
 };
 
 export const userContext = React.createContext({
