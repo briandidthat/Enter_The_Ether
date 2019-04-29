@@ -2,35 +2,34 @@ import React, { useContext, useState } from "react";
 import icons from "../../assets";
 import Button from "../UI/Button";
 import { Col, Row, Container } from "react-grid-system";
-//Card imports
+//Component imports
 import Checkout from "../Checkout";
+import ShopContext from "../../context/shop-context";
+//Card imports
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import CardHeader from "@material-ui/core/CardHeader";
 import Dialog from "@material-ui/core/Dialog";
 import Typography from "@material-ui/core/Typography";
-//Component imports
-//import Checkout from "../Checkout";
-import ShopContext from "../../context/shop-context";
 
 function Products() {
   const context = useContext(ShopContext);
-
-  const [state, setState] = useState({ open: false });
+  const [modalState, setModal] = useState({ open: false });
 
   const handleClickOpen = product => {
-    setState({ open: true });
+    setModal({ open: true });
     context.addProductToCart.bind(this, product);
+    console.log(product);
   };
 
   const handleClose = () => {
-    setState({ open: false });
+    setModal({ open: false });
   };
 
   return (
     <ShopContext.Consumer>
-      {context => (
+      {() => (
         <React.Fragment>
           <Container>
             <Row>
@@ -60,7 +59,7 @@ function Products() {
                           <Button
                             className="button button-accent"
                             id={product.id}
-                            onClick={handleClickOpen}
+                            onClick={()=> handleClickOpen(product)}
                           >
                             Preorder
                           </Button>
@@ -75,7 +74,7 @@ function Products() {
             <br />
           </Container>
           <Dialog
-            open={state.open}
+            open={modalState.open}
             onClose={handleClose}
             aria-labelledby="scroll-dialog-title"
           >

@@ -19,7 +19,7 @@ function PaymentDetails(props) {
           <TextField required id="cardNumber" label="Card number" name="cardNumber" value={state.cardNumber} onChange={handleChange} fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" label="Expiry date" name="expire" value={state.expire} onChange={handleChange} fullWidth />
+          <TextField required id="expDate" label="Expiration date" name="expire" value={state.expire}  onChange={handleChange} fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
@@ -28,7 +28,7 @@ function PaymentDetails(props) {
             label="CVV"
             name="cvv"
             value={state.cvv}
-            helperText="Three digits on signature strip"
+            helperText="Last three digits on back of card"
             fullWidth
             onChange={handleChange}
           />
