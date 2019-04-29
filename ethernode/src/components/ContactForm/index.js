@@ -6,27 +6,22 @@ import TextField from "@material-ui/core/TextField";
 import Button from "../UI/Button";
 import { Container, Row, Col } from "react-grid-system";
 
+import userReducer from "../../context/GlobalState";
 //Functional ContactForm Component
+import initialState from "../../context/GlobalState";;
+
 const ContactForm = () => {
-  const [state, setState] = useReducer(
-    (state, newState) => ({ ...state, ...newState }),
-    {
-      firstName: "",
-      lastName: "",
-      email: "",
-      message: ""
-    }
-  );
+  const [state, dispatch] = useReducer(userReducer, initialState);
 
   const handleChange = event => {
     const { name, value } = event.target;
-    setState({
+    dispatch({ 
       [name]: value
     });
   };
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(state);
+    console.log(state)
   };
 
   return (
@@ -47,7 +42,7 @@ const ContactForm = () => {
                       name="firstName"
                       margin="normal"
                       variant="outlined"
-                      value={state.firstName}
+                      value={state.userFirst}
                       onChange={handleChange}
                     />
                   </Col>
@@ -59,7 +54,7 @@ const ContactForm = () => {
                       name="lastName"
                       margin="normal"
                       variant="outlined"
-                      value={state.lastName}
+                      value={state.userLast}
                       onChange={handleChange}
                     />
                   </Col>
@@ -74,7 +69,7 @@ const ContactForm = () => {
                       name="email"
                       margin="normal"
                       variant="outlined"
-                      value={state.email}
+                      value={state.userEmail}
                       onChange={handleChange}
                     />
                   </Col>
