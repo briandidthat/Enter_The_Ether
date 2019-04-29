@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -6,22 +6,21 @@ import TextField from "@material-ui/core/TextField";
 import Button from "../UI/Button";
 import { Container, Row, Col } from "react-grid-system";
 
-import userReducer from "../../context/GlobalState";
-//Functional ContactForm Component
-import initialState from "../../context/GlobalState";;
-
 const ContactForm = () => {
-  const [state, dispatch] = useReducer(userReducer, initialState);
+  const [state, setState] = useState({
+    userFirst: "",
+    userLast: "",
+    userEmail: "",
+    message: ""
+  });
 
   const handleChange = event => {
     const { name, value } = event.target;
-    dispatch({ 
-      [name]: value
-    });
+    setState({ ...state, [name]: value });
   };
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(state)
+    console.log(state);
   };
 
   return (
@@ -39,7 +38,7 @@ const ContactForm = () => {
                       fullWidth
                       id="outlined-name"
                       label="First Name"
-                      name="firstName"
+                      name="userFirst"
                       margin="normal"
                       variant="outlined"
                       value={state.userFirst}
@@ -51,7 +50,7 @@ const ContactForm = () => {
                       fullWidth
                       id="outlined-name"
                       label="Last Name"
-                      name="lastName"
+                      name="userLast"
                       margin="normal"
                       variant="outlined"
                       value={state.userLast}
@@ -66,7 +65,7 @@ const ContactForm = () => {
                       id="outlined-name"
                       label="Email"
                       type="email"
-                      name="email"
+                      name="userEmail"
                       margin="normal"
                       variant="outlined"
                       value={state.userEmail}

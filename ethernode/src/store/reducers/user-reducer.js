@@ -49,3 +49,57 @@
 //       return state;
 //   }
 // };
+
+
+const newUser = (user, state) => {
+    const newMessage = {...state, user}
+    return {
+        ...state,
+        user: newMessage
+    }
+}
+
+
+
+export default function userReducer(state, action) {
+    switch (action.type) {
+      case "MAKE_ORDER":
+        return {
+          ...state,
+          userFirst: action.userFirst,
+          userLast: action.lastName,
+          userEmail: action.email,
+          address1: action.address1,
+          address2: action.address2,
+          city: action.city,
+          homeState: action.homeState,
+          country: action.country,
+          zip: action.zip,
+          cvv: action.cvv,
+          cardType: action.cardType,
+          cardNumber: action.cardNumber,
+          expire: action.expire,
+          items: {
+            itemID: action.itemID,
+            itemName: action.itemName,
+            itemDesc: action.itemDesc,
+            itemQty: action.itemQty,
+            itemCost: action.itemCost
+          }
+        };
+      case "SEND_MESSAGE":
+        return newUser(action.payload, state)
+        //   ...state,
+        //   user: user
+        //   userFirst: action.userFirst,
+        //   userLast: action.userLast,
+        //   userEmail: action.userEmail,
+        //   message: action.message
+
+      default:
+        return state;
+    }
+  }
+  
+
+  

@@ -11,10 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import AddressForm from "./AddressForm";
 import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
-import  userReducer from "../../context/GlobalState";
-
-const initialState = {}
-
+import  userReducer from "../../store/reducers/user-reducer";
+import initialState from "../../context/GlobalState";
 const steps = ["Shipping address", "Payment details", "Review your order"];
 
 function Checkout(props) {
