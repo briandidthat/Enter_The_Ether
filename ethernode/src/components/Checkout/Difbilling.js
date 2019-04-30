@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
 
-function DiffBilling(props) {
+function DifBilling(props) {
   const { handleChange, state } = props;
 
   return (
@@ -80,4 +80,4 @@ function DiffBilling(props) {
     </Grid>
   );
 }
-export default DiffBilling;
+export default DifBilling;

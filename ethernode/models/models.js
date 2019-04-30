@@ -24,28 +24,18 @@ const accountSchema = new Schema({
     expiration: { type: Number },
     cvv: { type: Number }
   },
-  address: {
-    type: Object,
-    billing: {
-      type: Object,
-      address1: { type: String },
-      address2: { type: String },
-      city: { type: String },
-      state: { type: String },
-      postal: { type: Number },
-      country: { type: String },
-    },
-    shipping: {
-      type: Object,
-      address1: { type: String },
-      address2: { type: String },
-      city: { type: String },
-      state: { type: String },
-      postal: { type: Number },
-      country: { type: String },
-
-    }
-  }
+  billingAddress1: { type: String },
+  billingAddress2: { type: String },
+  billingCity: { type: String },
+  billingState: { type: String },
+  billingZip: { type: Number },
+  billingCountry: { type: String },
+  shippingAddress1: { type: String },
+  shippingAddress2: { type: String },
+  shippingCity: { type: String },
+  shippingState: { type: String },
+  shippingZip: { type: Number },
+  shippingCountry: { type: String }
 });
 
 const User = mongoose.model("User", accountSchema);

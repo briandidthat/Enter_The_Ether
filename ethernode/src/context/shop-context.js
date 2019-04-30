@@ -18,5 +18,3 @@ const ShopContext =  React.createContext({
 });
 
 export default ShopContext;
-
-

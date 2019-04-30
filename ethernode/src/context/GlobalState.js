@@ -6,7 +6,7 @@ const initialState = {
   userFirst: "",
   userLast: "",
   message: "",
-  diffBilling: false,
+  difBilling: false,
   billingAddress1: "",
   billingAddress2: "",
   billingCity: "",
