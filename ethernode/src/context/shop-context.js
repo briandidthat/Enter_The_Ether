@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const ShopContext =  React.createContext({
   paymentDetails: [
     { name: "Card type", detail: "Visa" },
@@ -14,7 +15,9 @@ const ShopContext =  React.createContext({
       ],
   cart: [],
   addProductToCart: product => {},
-  removeProductFromCart: productId => {}
+  removeProductFromCart: productId => {},
+  calculateCartTotal: products => {}
+
 });
 
 export default ShopContext;
