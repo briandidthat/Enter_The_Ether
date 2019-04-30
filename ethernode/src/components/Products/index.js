@@ -12,21 +12,17 @@ import CardActions from "@material-ui/core/CardActions";
 import CardHeader from "@material-ui/core/CardHeader";
 import Dialog from "@material-ui/core/Dialog";
 import Typography from "@material-ui/core/Typography";
-import { CheckoutContext } from "../../context"
-
-
+import { CheckoutContext } from "../../context";
 
 function Products() {
   const context = useContext(ShopContext);
-  const { addItemToCart } = useContext(CheckoutContext)
+  const { addItemToCart } = useContext(CheckoutContext);
   const [modalState, setModal] = useState({ open: false });
 
   const handleClickOpen = item => {
     setModal({ open: true });
     addItemToCart(item);
-    console.log(item);
   };
-
   const handleClose = () => {
     setModal({ open: false });
   };
@@ -63,7 +59,7 @@ function Products() {
                           <Button
                             className="button button-accent"
                             id={item.id}
-                            onClick={()=> handleClickOpen(item)}
+                            onClick={() => handleClickOpen(item)}
                           >
                             Preorder
                           </Button>

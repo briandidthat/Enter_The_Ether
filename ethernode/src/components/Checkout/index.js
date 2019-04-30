@@ -13,9 +13,8 @@ import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
 import { CheckoutContext } from "../../context/checkout";
 
-
 function Checkout(props) {
-  const { state, steps } = useContext(CheckoutContext);
+  const { state, steps, getTotal } = useContext(CheckoutContext);
   //Set active step, and function in local State
   const [activeStep, setNext] = useState(0);
 
@@ -28,7 +27,7 @@ function Checkout(props) {
   const handleSubmit = e => {
     e.preventDefault();
     handleNext();
-    console.log(state);
+    getTotal(state.cart)
   };
 
   //get current step for checkout form to render content accordingly
@@ -71,7 +70,7 @@ function Checkout(props) {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is We have emailed your order confirmation,
+                  Your order number {state.orderNumber} is We have emailed your order confirmation,
                   and will send you an update when your order has shipped.
                 </Typography>
                 <Button onClick={handleBack} className={classes.button}>
