@@ -12,17 +12,17 @@ import CardActions from "@material-ui/core/CardActions";
 import CardHeader from "@material-ui/core/CardHeader";
 import Dialog from "@material-ui/core/Dialog";
 import Typography from "@material-ui/core/Typography";
+import { CheckoutContext } from "../../context";
 
 function Products() {
   const context = useContext(ShopContext);
+  const { addItemToCart } = useContext(CheckoutContext);
   const [modalState, setModal] = useState({ open: false });
 
-  const handleClickOpen = product => {
+  const handleClickOpen = item => {
     setModal({ open: true });
-    context.addProductToCart.bind(this, product);
-    console.log(product);
+    addItemToCart(item);
   };
-
   const handleClose = () => {
     setModal({ open: false });
   };
@@ -33,10 +33,10 @@ function Products() {
         <React.Fragment>
           <Container>
             <Row>
-              {context.products.map(product => (
-                <Col sm={4} key={product.id}>
+              {context.products.map(item => (
+                <Col sm={4} key={item.id}>
                   <Card>
-                    <CardHeader title={product.desc} />
+                    <CardHeader title={item.desc} />
                     <CardContent>
                       <img
                         src={icons.ethernodeLogo}
@@ -52,14 +52,14 @@ function Products() {
                         <br />
                         Custom Case and AC adapter
                         <br />
-                        {product.price}
+                        ${item.price}
                       </Typography>
                       <CardActions>
                         <Col lg={12}>
                           <Button
                             className="button button-accent"
-                            id={product.id}
-                            onClick={()=> handleClickOpen(product)}
+                            id={item.id}
+                            onClick={() => handleClickOpen(item)}
                           >
                             Preorder
                           </Button>

@@ -9,15 +9,14 @@ const ShopContext =  React.createContext({
     { name: "Expiration date", detail: "04/2024" }
       ],
   products: [
-        { id: 1, name: "Starter", desc: "500GB", price: "$399.99" },
-        { id: 2, name: "Advanced", desc: "1TB", price: "$499.99" },
-        { id: 3, name: "Boss", desc: "2TB", price: "$629.99" },
+        { id: 1, name: "Starter", desc: "500GB", price: "399.99" },
+        { id: 2, name: "Advanced", desc: "1TB", price: "499.99" },
+        { id: 3, name: "Boss", desc: "2TB", price: "629.99" },
       ],
   cart: [],
-  addProductToCart: product => {},
-  removeProductFromCart: productId => {},
-  calculateCartTotal: products => {}
-
+  addItemToCart: item => {},
+  removeItemFromCart: item => {},
+  calculateCartTotal: item => {}
 });
 
 export default ShopContext;

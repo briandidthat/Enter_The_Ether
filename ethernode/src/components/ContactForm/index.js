@@ -1,27 +1,15 @@
-import React, { useState } from "react";
+import React, {  useContext } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import TextField from "@material-ui/core/TextField";
 import Button from "../UI/Button";
 import { Container, Row, Col } from "react-grid-system";
+import  { ContactContext }  from "../../context"
 
 const ContactForm = () => {
-  const [state, setState] = useState({
-    userFirst: "",
-    userLast: "",
-    userEmail: "",
-    message: ""
-  });
 
-  const handleChange = event => {
-    const { name, value } = event.target;
-    setState({ ...state, [name]: value });
-  };
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log(state);
-  };
+  const { userInfo, handleChange, handleSubmit } = useContext(ContactContext)
 
   return (
     <React.Fragment>
@@ -41,7 +29,7 @@ const ContactForm = () => {
                       name="userFirst"
                       margin="normal"
                       variant="outlined"
-                      value={state.userFirst}
+                      value={userInfo.userFirst}
                       onChange={handleChange}
                     />
                   </Col>
@@ -53,7 +41,7 @@ const ContactForm = () => {
                       name="userLast"
                       margin="normal"
                       variant="outlined"
-                      value={state.userLast}
+                      value={userInfo.userLast}
                       onChange={handleChange}
                     />
                   </Col>
@@ -68,7 +56,7 @@ const ContactForm = () => {
                       name="userEmail"
                       margin="normal"
                       variant="outlined"
-                      value={state.userEmail}
+                      value={userInfo.userEmail}
                       onChange={handleChange}
                     />
                   </Col>
@@ -83,7 +71,7 @@ const ContactForm = () => {
                       name="message"
                       margin="normal"
                       variant="outlined"
-                      value={state.message}
+                      value={userInfo.message}
                       onChange={handleChange}
                     />
                   </Col>

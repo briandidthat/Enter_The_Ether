@@ -1,13 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import DifBilling from "./Difbilling";
+import { CheckoutContext } from "../../context/checkout";
 
-function AddressForm(props) {
-  const { state, handleChange, setState } = props;
+function AddressForm() {
+  const { state, handleChange, setState } = useContext(CheckoutContext);
   
   const difBilling = () => {
     setState({ difBilling: true });

@@ -7,11 +7,13 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Grid from "@material-ui/core/Grid";
 import ShopContext from "../../context/shop-context";
+import {CheckoutContext} from "../../context/checkout"
 
 const addresses = ["1 Stoner Drive", "Reactville", "Anytown", "99999", "USA"];
 
 const Confirm = props => {
   const context = useContext(ShopContext);
+  const { state } = useContext(CheckoutContext)
   const { classes } = props;
 
   return (
@@ -22,16 +24,16 @@ const Confirm = props => {
             Order summary
           </Typography>
           <List disablePadding>
-            {context.products.map(product => (
-              <ListItem className={classes.listItem} key={product.id}>
-                <ListItemText primary={product.name} secondary={product.desc} />
-                <Typography variant="body2">{product.price}</Typography>
+            {state.cart.map(item => (
+              <ListItem className={classes.listItem} key={item.id}>
+                <ListItemText primary={item.name} secondary={item.desc} />
+                <Typography variant="body2">{item.price}</Typography>
               </ListItem>
             ))}
             <ListItem className={classes.listItem}>
               <ListItemText primary="Total" />
               <Typography variant="subtitle1" className={classes.total}>
-                $1829
+                {state.total}
               </Typography>
             </ListItem>
           </List>
@@ -40,7 +42,7 @@ const Confirm = props => {
               <Typography variant="h6" gutterBottom className={classes.title}>
                 Shipping
               </Typography>
-              <Typography gutterBottom>John Smith</Typography>
+              <Typography gutterBottom>{state.userFirst} {state.userLast}</Typography>
               <Typography gutterBottom>{addresses.join(", ")}</Typography>
             </Grid>
             <Grid item container direction="column" xs={12} sm={6}>

@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -11,49 +11,34 @@ import Typography from "@material-ui/core/Typography";
 import AddressForm from "./AddressForm";
 import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
-import initialState from "../../context/GlobalState";
-
-const steps = ["Shipping address", "Payment details", "Review your order"];
+import { CheckoutContext } from "../../context/checkout";
 
 function Checkout(props) {
-  //Reducer to go over all state items and spread them
-  //and add values to an empty state object
-  const [state , setState] = useReducer(
-    (state, newState) => ({ ...state, ...newState }),
-    {...initialState}
-  );
-  //Set active step, and function in State
+  const { state, steps, getTotal } = useContext(CheckoutContext);
+  //Set active step, and function in local State
   const [activeStep, setNext] = useState(0);
-
-  const handleChange = event => {
-    const { name, value } = event.target;
-    setState({
-      [name]: value
-    });
-  };
 
   const handleNext = () => {
     setNext(activeStep + 1);
   };
-
   const handleBack = () => {
     setNext(activeStep - 1);
   };
-
   const handleSubmit = e => {
     e.preventDefault();
     handleNext();
-    console.log(state);
+    getTotal(state.cart)
   };
+
   //get current step for checkout form to render content accordingly
   const getStepContent = step => {
     switch (step) {
       case 0:
-        return <AddressForm handleChange={handleChange} setState={setState} state={state} />;
+        return <AddressForm />;
       case 1:
-        return <PaymentDetails handleChange={handleChange} state={state} />;
+        return <PaymentDetails />;
       case 2:
-        return <Confirm handleSubmit={handleSubmit} state={state} />;
+        return <Confirm />;
       default:
         throw new Error("Unknown step");
     }
@@ -85,7 +70,7 @@ function Checkout(props) {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is We have emailed your order confirmation,
+                  Your order number {state.orderNumber} is We have emailed your order confirmation,
                   and will send you an update when your order has shipped.
                 </Typography>
                 <Button onClick={handleBack} className={classes.button}>
