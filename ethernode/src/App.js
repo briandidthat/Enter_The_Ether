@@ -4,7 +4,7 @@ import Home from "./views/Home";
 import Product from "./views/Product";
 import Contact from "./views/Contact";
 import Layout from "./Layout";
-
+import { ContextProvider } from "./context/state";
 
 //layout function with incoming Components as the parameter
 const withLayout = Component => {
@@ -17,6 +17,7 @@ const withLayout = Component => {
 
 const App = () => {
   return (  
+    <ContextProvider>
       <Router>
         <Switch>
           <Route path="/" exact render={() => withLayout(Home)} />
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/contact" exact render={() => withLayout(Contact)} />
         </Switch>
       </Router>
+      </ContextProvider>
     )
 }
 
