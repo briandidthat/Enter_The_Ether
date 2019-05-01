@@ -24,6 +24,9 @@ const initialState = {
   orderId: "",
   orderStatus: "",
   orderDate: today,
+  password:"",
+  cart: [],
+  salesTax: "",
   payType: "Credit Card",
   billingAddress1: "",
   billingAddress2: "",
@@ -40,7 +43,7 @@ const initialState = {
   shippingCost: 0,
   difBilling: false,
   madeOrder: false,
-  cart: []
+  
 };
 
 export function CheckoutProvider(props) {
@@ -70,12 +73,14 @@ export function CheckoutProvider(props) {
   const getTotal = cart => {
     let total = 0;
     cart.map(item => {
-      let numeric = parseInt(item.price);
+      let numeric = parseInt(item.itemCost);
       total = numeric + total;
       setState({ orderTotal: total });
       return total;
     });
   };
+
+
 
   return (
     <CheckoutContext.Provider

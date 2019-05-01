@@ -1,41 +1,54 @@
-const axios = require("axios");
+export const PAY_URL = "https://enpay.ethernode.io/authRPC/authnet";
+export const API_URL = "https://enpay.ethernode.io/accountRPC/accounts";
 
-export default function makeCharge(user) {
-  const data = {
+export const checkoutUser = user => {
+  let userData = {
     jsonrpc: "2.0",
     method: "processcc",
     params: [
-      "true",
+      user.difShipping,
       user.cardNumber,
       user.expirationDate,
-      user.cvv,
       "EtherNode",
       user.userFirst,
       user.userLast,
-      "ETC",
+      "",
       user.shippingAddress1,
-      user.shippingAddress2,
+      user.shippingCity,
+      user.shippingState,
       user.shippingZip,
       user.shippingCountry,
       user.cart,
-      user.orderTotal,
+      user.salesTax,
       user.userFirst,
       user.userLast,
-      "ETC",
+      "",
       user.billingAddress1,
       user.billingCity,
-      user.BillingZip,
+      user.BillingState,
       user.billingZip,
       user.billingCountry,
       user.shippingCost,
-      "USPS Ground"
-    ],
-    id: 15
+      "USPS Ground",
+      "USPS Priority Ground",
+      "AUTHONLYTRANSACTION",
+      user.orderTotal
+    ]
   };
+  return userData;
+};
 
-  axios
-    .post("https://enpay.ethernode.io/authRPC/authnet", { data })
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-  console.log(data);
-}
+export const signUpUser = user => {
+  let userInfo = {
+    jsonrpc: "2.0",
+    method: "processcc",
+    params: [
+      user.userEmail,
+      user.userFirst,
+      user.userLast,
+      user.userPassword,
+      user.userRole
+    ]
+  };
+  return userInfo;
+};

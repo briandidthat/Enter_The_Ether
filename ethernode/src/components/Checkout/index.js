@@ -11,8 +11,10 @@ import Typography from "@material-ui/core/Typography";
 import AddressForm from "./AddressForm";
 import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
-import makeCharge from "../../api"
 import { CheckoutContext } from "../../context/checkout";
+import { API_URL, PAY_URL, checkoutUser, signUpUser } from "../../api"
+import axios from "axios";
+
 
 function Checkout(props) {
   const { state, steps, getTotal } = useContext(CheckoutContext);
@@ -21,18 +23,20 @@ function Checkout(props) {
 
   const handleNext = () => {
     setNext(activeStep + 1);
-    getTotal(state.cart)
+    getTotal(state.cart);
   };
   const handleBack = () => {
     setNext(activeStep - 1);
   };
   async function handleSubmit() {
-    //let response = await makeCharge(state)
-    //let status = response.json()
-    handleNext();
-    // 
-    console.log(state)
+    let userInfo = await signUpUser(state)
+    let register = await axios.post(API_URL, userInfo)
+    console.log(register)
+    handleNext()
   };
+
+
+
 
   //get current step for checkout form to render content accordingly
   const getStepContent = step => {
@@ -56,7 +60,7 @@ function Checkout(props) {
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
-            Checkout      ${state.orderTotal}
+            Checkout ${state.orderTotal}
           </Typography>
           {/* Map through the steps of the step array to display them as labels */}
           <Stepper activeStep={activeStep} className={classes.stepper}>
@@ -74,8 +78,9 @@ function Checkout(props) {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number {state.orderNumber} is We have emailed your order confirmation,
-                  and will send you an update when your order has shipped.
+                  Your order number is {state.orderNumber}. We have emailed your
+                  order confirmation, and will send you an update when your
+                  order has shipped.
                 </Typography>
                 <Button onClick={handleBack} className={classes.button}>
                   Back

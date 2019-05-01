@@ -29,15 +29,13 @@ function Products() {
   };
 
   return (
-    <ShopContext.Consumer>
-      {() => (
         <React.Fragment>
           <Container>
             <Row>
-              {context.products.map(item => (
-                <Col sm={4} key={item.id}>
+              {context.products.map((item, index) => (
+                <Col sm={4} key={index}>
                   <Card>
-                    <CardHeader title={item.desc} />
+                    <CardHeader title={item.itemDesc} />
                     <CardContent>
                       <img
                         src={icons.ethernodeLogo}
@@ -53,13 +51,13 @@ function Products() {
                         <br />
                         Custom Case and AC adapter
                         <br />
-                        ${item.price}
+                        ${item.itemCost}
                       </Typography>
                       <CardActions>
                         <Col lg={12}>
                           <Button
                             className="button button-accent"
-                            id={item.id}
+                            id={item.itemId}
                             onClick={() => handleClickOpen(item)}
                           >
                             Preorder
@@ -82,8 +80,6 @@ function Products() {
             <Checkout />
           </Dialog>
         </React.Fragment>
-      )}
-    </ShopContext.Consumer>
   );
 }
 

@@ -21,9 +21,9 @@ export function ContactProvider(props) {
 
   return (
     <ContactContext.Provider
-      value={{userInfo, setUser, handleChange, handleSubmit}}
+      value={{ userInfo, setUser, handleChange, handleSubmit }}
     >
       {props.children}
     </ContactContext.Provider>
-  )
+  );
 }
