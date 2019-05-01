@@ -16,12 +16,13 @@ import { CheckoutContext } from "../../context";
 
 function Products() {
   const context = useContext(ShopContext);
-  const { addItemToCart } = useContext(CheckoutContext);
+  const { addItemToCart, getTotal, state } = useContext(CheckoutContext);
   const [modalState, setModal] = useState({ open: false });
 
   const handleClickOpen = item => {
     setModal({ open: true });
     addItemToCart(item);
+    getTotal(state.cart)
   };
   const handleClose = () => {
     setModal({ open: false });

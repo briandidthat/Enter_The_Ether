@@ -1,15 +1,41 @@
-// import axios from "axios";
+const axios = require("axios");
 
-// export const API_URL = "https://api.ethernode.io/";
+export default function makeCharge(user) {
+  const data = {
+    jsonrpc: "2.0",
+    method: "processcc",
+    params: [
+      "true",
+      user.cardNumber,
+      user.expirationDate,
+      user.cvv,
+      "EtherNode",
+      user.userFirst,
+      user.userLast,
+      "ETC",
+      user.shippingAddress1,
+      user.shippingAddress2,
+      user.shippingZip,
+      user.shippingCountry,
+      user.cart,
+      user.orderTotal,
+      user.userFirst,
+      user.userLast,
+      "ETC",
+      user.billingAddress1,
+      user.billingCity,
+      user.BillingZip,
+      user.billingZip,
+      user.billingCountry,
+      user.shippingCost,
+      "USPS Ground"
+    ],
+    id: 15
+  };
 
-// export function* post(url, data = {}, headers = {}) {
-//   return yield axios
-//     .post(API_URL + url, data, headers)
-//     .then(response => {
-//       return { data: response.data };
-//     })
-//     .catch(error => {
-//       return { error: error };
-//     });
-// }
-
+  axios
+    .post("https://enpay.ethernode.io/authRPC/authnet", { data })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  console.log(data);
+}

@@ -1,5 +1,13 @@
 import React, { useReducer } from "react";
 import findIndex from "lodash/findIndex";
+//set date for global state
+let today = new Date();
+const dd = String(today.getDate()).padStart(2, '0');
+const mm = String(today.getMonth() + 1).padStart(2, '0');
+const yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
+
 
 export const CheckoutContext = React.createContext();
 
@@ -8,7 +16,6 @@ const initialState = {
   userRole: "",
   userFirst: "",
   userLast: "",
-  message: "",
   cardHolder: "",
   cardNumber: "",
   cvv: "",
@@ -16,7 +23,7 @@ const initialState = {
   orderTotal: "",
   orderId: "",
   orderStatus: "",
-  orderDate: "",
+  orderDate: today,
   payType: "Credit Card",
   billingAddress1: "",
   billingAddress2: "",
@@ -30,6 +37,7 @@ const initialState = {
   shippingState: "",
   shippingZip: "",
   shippingcountry: "",
+  shippingCost: 0,
   difBilling: false,
   madeOrder: false,
   cart: []
@@ -37,38 +45,36 @@ const initialState = {
 
 export function CheckoutProvider(props) {
   const steps = ["Shipping address", "Payment details", "Review your order"];
-
+  //Set Global State based on user input
   const [state, setState] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     { ...initialState }
   );
-
+  //Handle user input change
   const handleChange = event => {
     const { name, value } = event.target;
     setState({
       [name]: value
     });
   };
-
+  //Add Item To Cart
   const addItemToCart = item => {
     let tempCart = state.cart;
     if (tempCart.length < 0) {
       tempCart = [item];
     } else if (findIndex(tempCart, { sku: item.sku }) - 1) tempCart.push(item);
     setState({ cart: tempCart });
-    getTotal(state.cart);
-    console.log(state.cart)
+    console.log(state.cart);
   };
-
+  //Get Cart Total
   const getTotal = cart => {
-    let total = 0
+    let total = 0;
     cart.map(item => {
       let numeric = parseInt(item.price);
       total = numeric + total;
+      setState({ orderTotal: total });
       return total;
     });
-    setState({ orderTotal: total });
-    console.log(state.orderTotal)
   };
 
   return (
@@ -86,19 +92,3 @@ export function CheckoutProvider(props) {
     </CheckoutContext.Provider>
   );
 }
-
-// let updatedCart;
-// let updatedItemIndex;
-// updatedCart = [...state.cart];
-// updatedItemIndex = updatedCart.findIndex(item => item.id === item.itemId);
-// if (updatedItemIndex <= 0) {
-//   updatedCart.push({ quantity: 1 });
-// } else {
-//   const updatedItem = {
-//     ...updatedCart[updatedItemIndex]
-//   };
-//   updatedItem.quantity++;
-//   updatedCart[updatedItemIndex] = updatedItem;
-//   console.log(updatedItem);
-// }
-// return { ...state, cart: updatedCart };

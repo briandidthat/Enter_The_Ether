@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import { CheckoutContext } from "../../context/checkout";
 
-
-function DifBilling(props) {
-  const { handleChange, state } = props;
+function DifBilling() {
+  const { handleChange, state } = useContext(CheckoutContext)
 
   return (
     <Grid container spacing={24}>

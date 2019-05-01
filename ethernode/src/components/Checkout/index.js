@@ -11,22 +11,27 @@ import Typography from "@material-ui/core/Typography";
 import AddressForm from "./AddressForm";
 import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
+import makeCharge from "../../api"
 import { CheckoutContext } from "../../context/checkout";
 
 function Checkout(props) {
-  const { state, steps } = useContext(CheckoutContext);
+  const { state, steps, getTotal } = useContext(CheckoutContext);
   //Set active step, and function in local State
   const [activeStep, setNext] = useState(0);
 
   const handleNext = () => {
     setNext(activeStep + 1);
+    getTotal(state.cart)
   };
   const handleBack = () => {
     setNext(activeStep - 1);
   };
-  const handleSubmit = e => {
-    e.preventDefault();
+  async function handleSubmit() {
+    //let response = await makeCharge(state)
+    //let status = response.json()
     handleNext();
+    // 
+    console.log(state)
   };
 
   //get current step for checkout form to render content accordingly
@@ -51,7 +56,7 @@ function Checkout(props) {
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
-            Checkout
+            Checkout      ${state.orderTotal}
           </Typography>
           {/* Map through the steps of the step array to display them as labels */}
           <Stepper activeStep={activeStep} className={classes.stepper}>
