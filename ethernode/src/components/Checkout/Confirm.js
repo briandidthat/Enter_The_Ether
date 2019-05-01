@@ -24,8 +24,8 @@ const Confirm = props => {
             Order summary
           </Typography>
           <List disablePadding>
-            {state.cart.map(item => (
-              <ListItem className={classes.listItem} key={item.id}>
+            {state.cart.map((item, index) => (
+              <ListItem className={classes.listItem} key={index}>
                 <ListItemText primary={item.name} secondary={item.desc} />
                 <Typography variant="body2">{item.price}</Typography>
               </ListItem>
@@ -33,7 +33,7 @@ const Confirm = props => {
             <ListItem className={classes.listItem}>
               <ListItemText primary="Total" />
               <Typography variant="subtitle1" className={classes.total}>
-                {state.total}
+                ${state.orderTotal}.99
               </Typography>
             </ListItem>
           </List>

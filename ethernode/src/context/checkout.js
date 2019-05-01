@@ -13,9 +13,10 @@ const initialState = {
   cardNumber: "",
   cvv: "",
   expiration: "",
-  orderTotal: 0,
+  orderTotal: "",
   orderId: "",
   orderStatus: "",
+  orderDate: "",
   payType: "Credit Card",
   billingAddress1: "",
   billingAddress2: "",
@@ -51,27 +52,35 @@ export function CheckoutProvider(props) {
 
   const addItemToCart = item => {
     let tempCart = state.cart;
-    if (tempCart.length < 1) {
+    if (tempCart.length < 0) {
       tempCart = [item];
     } else if (findIndex(tempCart, { sku: item.sku }) - 1) tempCart.push(item);
     setState({ cart: tempCart });
-    console.log(state.cart);
+    getTotal(state.cart);
+    console.log(state.cart)
   };
 
   const getTotal = cart => {
-    let total = 0;
+    let total = 0
     cart.map(item => {
       let numeric = parseInt(item.price);
       total = numeric + total;
-      setState({ orderTotal: total });
       return total;
     });
-    console.log(total);
+    setState({ orderTotal: total });
+    console.log(state.orderTotal)
   };
 
   return (
     <CheckoutContext.Provider
-      value={{ steps, addItemToCart, state, setState, handleChange, getTotal }}
+      value={{
+        steps,
+        addItemToCart,
+        state,
+        setState,
+        handleChange,
+        getTotal
+      }}
     >
       {props.children}
     </CheckoutContext.Provider>

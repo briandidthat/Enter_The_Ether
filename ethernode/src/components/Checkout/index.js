@@ -14,7 +14,7 @@ import Confirm from "./Confirm";
 import { CheckoutContext } from "../../context/checkout";
 
 function Checkout(props) {
-  const { state, steps, getTotal } = useContext(CheckoutContext);
+  const { state, steps } = useContext(CheckoutContext);
   //Set active step, and function in local State
   const [activeStep, setNext] = useState(0);
 
@@ -27,7 +27,6 @@ function Checkout(props) {
   const handleSubmit = e => {
     e.preventDefault();
     handleNext();
-    getTotal(state.cart)
   };
 
   //get current step for checkout form to render content accordingly
