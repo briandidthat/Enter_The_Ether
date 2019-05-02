@@ -13,7 +13,6 @@ import twitterLogo from "./twitter_logo.svg";
 import discordLogo from "./discord-brands.svg";
 import githubLogo from "./github_logo.svg";
 import mapImg from "./map.png";
-import networkIcon from "./Network_Icon.png";
 import enKeepIcon from "./EnKeep_Icon_Lt.png";
 import headerDark from "./Header-Dark-Outline.png"
 import logoDark from "./Logo-Dark-Bold-Outline.png"
@@ -36,8 +35,7 @@ const icons  = {
     twitterLogo,
     discordLogo,
     githubLogo,
-    mapImg,
-    networkIcon, 
+    mapImg, 
     headerDark,
     logoDark,
     netWorkEarth,
