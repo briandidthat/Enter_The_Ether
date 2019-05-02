@@ -6,66 +6,57 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Grid from "@material-ui/core/Grid";
-import ShopContext from "../../context/shop-context";
-import {CheckoutContext} from "../../context/checkout"
-
-const addresses = ["1 Stoner Drive", "Reactville", "Anytown", "99999", "USA"];
+import { CheckoutContext } from "../../context/checkout";
 
 const Confirm = props => {
-  const context = useContext(ShopContext);
-  const { state } = useContext(CheckoutContext)
+  const { state } = useContext(CheckoutContext);
   const { classes } = props;
 
   return (
-    <ShopContext.Consumer>
-      {() => (
-        <React.Fragment>
-          <Typography variant="h6" gutterBottom>
-            Order summary
+    <React.Fragment>
+      <Typography variant="h6" gutterBottom>
+        Order summary
+      </Typography>
+      <List disablePadding>
+        {state.cart.map((item, index) => (
+          <ListItem className={classes.listItem} key={index}>
+            <ListItemText primary={item.itemName} secondary={item.itemDesc} />
+            <Typography variant="body2">{item.itemCost}</Typography>
+          </ListItem>
+        ))}
+        <ListItem className={classes.listItem}>
+          <ListItemText primary="Total" />
+          <Typography variant="subtitle1" className={classes.total}>
+            ${state.orderTotal}
           </Typography>
-          <List disablePadding>
-            {state.cart.map((item, index) => (
-              <ListItem className={classes.listItem} key={index}>
-                <ListItemText primary={item.name} secondary={item.desc} />
-                <Typography variant="body2">{item.price}</Typography>
-              </ListItem>
-            ))}
-            <ListItem className={classes.listItem}>
-              <ListItemText primary="Total" />
-              <Typography variant="subtitle1" className={classes.total}>
-                ${state.orderTotal}.99
-              </Typography>
-            </ListItem>
-          </List>
-          <Grid container spacing={16}>
-            <Grid item xs={12} sm={6}>
-              <Typography variant="h6" gutterBottom className={classes.title}>
-                Shipping
-              </Typography>
-              <Typography gutterBottom>{state.userFirst} {state.userLast}</Typography>
-              <Typography gutterBottom>{addresses.join(", ")}</Typography>
-            </Grid>
-            <Grid item container direction="column" xs={12} sm={6}>
-              <Typography variant="h6" gutterBottom className={classes.title}>
-                Payment details
-              </Typography>
-              <Grid container>
-                {context.paymentDetails.map(payment => (
-                  <React.Fragment key={payment.name}>
-                    <Grid item xs={6}>
-                      <Typography gutterBottom>{payment.name}</Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Typography gutterBottom>{payment.detail}</Typography>
-                    </Grid>
-                  </React.Fragment>
-                ))}
-              </Grid>
-            </Grid>
+        </ListItem>
+      </List>
+      <Grid container spacing={16}>
+        <Grid item xs={12} sm={6}>
+          <Typography variant="h6" gutterBottom className={classes.title}>
+            Shipping
+          </Typography>
+          <Typography gutterBottom>
+            {state.shippingAddress1} {state.shippingAddress2}
+          </Typography>
+          <Typography gutterBottom>
+            {state.shippingCity}, {state.shippingState} {state.shippingZip}
+          </Typography>
+          <Typography gutterBottom>{state.shippingCountry}</Typography>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Typography variant="h6" gutterBottom className={classes.title}>
+            Payment details
+          </Typography>
+          <Grid item xs={12}>
+            <Typography gutterBottom>
+              {state.userFirst} {state.userLast}
+            </Typography>
+            <Typography gutterBottom>{state.cardNumber}</Typography>
           </Grid>
-        </React.Fragment>
-      )}
-    </ShopContext.Consumer>
+        </Grid>
+      </Grid>
+    </React.Fragment>
   );
 };
 

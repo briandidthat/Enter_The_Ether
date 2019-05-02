@@ -1,47 +1,8 @@
 import React, { useReducer } from "react";
 import findIndex from "lodash/findIndex";
-//set date for global state
-let today = new Date();
-const dd = String(today.getDate()).padStart(2, '0');
-const mm = String(today.getMonth() + 1).padStart(2, '0');
-const yyyy = today.getFullYear();
-
-today = mm + '/' + dd + '/' + yyyy;
-
+import {initialState} from "../utils/constants"
 
 export const CheckoutContext = React.createContext();
-
-const initialState = {
-  userEmail: "",
-  userRole: "",
-  userFirst: "",
-  userLast: "",
-  cardHolder: "",
-  cardNumber: "",
-  cvv: "",
-  expiration: "",
-  orderTotal: "",
-  orderId: "",
-  orderStatus: "",
-  orderDate: today,
-  payType: "Credit Card",
-  billingAddress1: "",
-  billingAddress2: "",
-  billingCity: "",
-  billingState: "",
-  billingZip: "",
-  billingCountry: "",
-  shippingAddress1: "",
-  shippingAddress2: "",
-  shippingCity: "",
-  shippingState: "",
-  shippingZip: "",
-  shippingcountry: "",
-  shippingCost: 0,
-  difBilling: false,
-  madeOrder: false,
-  cart: []
-};
 
 export function CheckoutProvider(props) {
   const steps = ["Shipping address", "Payment details", "Review your order"];
@@ -70,7 +31,7 @@ export function CheckoutProvider(props) {
   const getTotal = cart => {
     let total = 0;
     cart.map(item => {
-      let numeric = parseInt(item.price);
+      let numeric = parseInt(item.itemCost);
       total = numeric + total;
       setState({ orderTotal: total });
       return total;

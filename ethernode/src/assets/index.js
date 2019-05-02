@@ -14,7 +14,7 @@ import discordLogo from "./discord-brands.svg";
 import githubLogo from "./github_logo.svg";
 import mapImg from "./map.png";
 import protoType from "./Prototype_Angle_Clipped.png"
-
+import network from "./network.jpeg";
 
 const icons  = {
     blockchainIcon,
@@ -32,7 +32,8 @@ const icons  = {
     discordLogo,
     githubLogo,
     mapImg,
-    protoType
+    protoType,
+    network
 };
 
 export default icons;
