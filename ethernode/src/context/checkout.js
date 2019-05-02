@@ -24,7 +24,7 @@ const initialState = {
   orderId: "",
   orderStatus: "",
   orderDate: today,
-  password:"",
+  userPassword: "",
   cart: [],
   salesTax: "",
   payType: "Credit Card",

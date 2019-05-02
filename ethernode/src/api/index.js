@@ -33,7 +33,8 @@ export const checkoutUser = user => {
       "USPS Priority Ground",
       "AUTHONLYTRANSACTION",
       user.orderTotal
-    ]
+    ],
+    id: 2
   };
   return userData;
 };
@@ -41,14 +42,15 @@ export const checkoutUser = user => {
 export const signUpUser = user => {
   let userInfo = {
     jsonrpc: "2.0",
-    method: "processcc",
+    method: "createUser",
     params: [
       user.userEmail,
       user.userFirst,
       user.userLast,
       user.userPassword,
-      user.userRole
-    ]
+      "customer"
+    ],
+    id:4
   };
   return userInfo;
 };
