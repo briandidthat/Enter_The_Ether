@@ -16,7 +16,7 @@ const ContactForm = () => {
       <br />
       <Container>
         <Row>
-          <Col lg={6}>
+          <Col lg={12}>
             <Card style={styles.card}>
               <CardHeader title="Contact Us" />
               <CardContent>
@@ -85,6 +85,7 @@ const ContactForm = () => {
           </Col>
         </Row>
       </Container>
+      <br />
       <br />
     </React.Fragment>
   );

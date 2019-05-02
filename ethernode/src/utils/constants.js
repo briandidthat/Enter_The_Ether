@@ -15,13 +15,13 @@ export const initialState = {
   cardNumber: "",
   cvv: "",
   expiration: "",
-  orderTotal: "",
+  orderTotal: "0",
   orderId: "",
   orderStatus: "",
   orderDate: today,
   userPassword: "",
   cart: [],
-  salesTax: "2",
+  salesTax: "0",
   payType: "Credit Card",
   billingAddress1: "",
   billingAddress2: "",
@@ -35,7 +35,7 @@ export const initialState = {
   shippingState: "",
   shippingZip: "",
   shippingcountry: "",
-  shippingCost: 0,
+  shippingCost: 10,
   difShipping: false,
   madeOrder: false
 };
@@ -72,8 +72,8 @@ export const checkoutInfo = user => {
       user.shippingCost,
       "USPS Ground",
       "USPS Priority Ground",
-      "AUTHONLYTRANSACTION",
-      450
+      "AUTHCAPTURETRANSACTION",
+      user.orderTotal
     ],
     id: 200
   };
