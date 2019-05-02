@@ -12,13 +12,11 @@ import AddressForm from "./AddressForm";
 import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
 import { CheckoutContext } from "../../context/checkout";
-import { API_URL, PAY_URL, checkoutUser, signUpUser } from "../../api"
-import axios from "axios";
-
+import API from "../../utils/API";
+import { signUpInfo, register } from "../../utils/constants";
 
 function Checkout(props) {
   const { state, steps, getTotal } = useContext(CheckoutContext);
-  //Set active step, and function in local State
   const [activeStep, setNext] = useState(0);
 
   const handleNext = () => {
@@ -28,15 +26,15 @@ function Checkout(props) {
   const handleBack = () => {
     setNext(activeStep - 1);
   };
+
   async function handleSubmit() {
-    let userInfo = await signUpUser(state)
-    let register = await axios.post(API_URL, userInfo)
-    console.log(register)
-    handleNext()
-  };
-
-
-
+    let user = await signUpInfo(state);
+    let register = await API.register(user);
+    //let userData = await checkoutInfo(state)
+    //let checkout = await API.checkout(userData)
+    console.log(state);
+    handleNext();
+  }
 
   //get current step for checkout form to render content accordingly
   const getStepContent = step => {
