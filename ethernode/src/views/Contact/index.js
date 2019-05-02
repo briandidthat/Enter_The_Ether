@@ -13,6 +13,8 @@ import ContactForm from "../../components/ContactForm";
 const Contact = props => (
       <React.Fragment>
           <ContactForm />
+          <br />
+          <br />
       </React.Fragment>
 )
 

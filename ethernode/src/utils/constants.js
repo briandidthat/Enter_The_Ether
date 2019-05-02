@@ -40,6 +40,7 @@ export const initialState = {
   madeOrder: false
 };
 
+//Clean user before sending to API
 export const checkoutInfo = user => {
   let userData = {
     jsonrpc: "2.0",
@@ -47,7 +48,7 @@ export const checkoutInfo = user => {
     params: [
       user.difShipping,
       user.cardNumber,
-      user.expirationDate,
+      user.expiration,
       user.cvv,
       "",
       user.userFirst,
@@ -74,11 +75,11 @@ export const checkoutInfo = user => {
       "AUTHONLYTRANSACTION",
       user.orderTotal
     ],
-    id: 2
+    id: 200
   };
   return userData;
 };
-//Cleanse user before firing it off 
+//Clean user before sending to DB 
 export const signUpInfo = user => {
   let userInfo = {
     jsonrpc: "2.0",

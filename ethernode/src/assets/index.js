@@ -13,13 +13,18 @@ import twitterLogo from "./twitter_logo.svg";
 import discordLogo from "./discord-brands.svg";
 import githubLogo from "./github_logo.svg";
 import mapImg from "./map.png";
-import protoType from "./Prototype_Angle_Clipped.png"
-import network from "./network.jpeg";
+import networkIcon from "./Network_Icon.png";
+import enKeepIcon from "./EnKeep_Icon_Lt.png";
+import headerDark from "./Header-Dark-Outline.png"
+import logoDark from "./Logo-Dark-Bold-Outline.png"
+import netWorkEarth from "./Network_Earth.png"
+import darkHeader from "./Header-Dark.png"
 
 const icons  = {
     blockchainIcon,
     enconnectLogo,
     enosLogo,
+    enKeepIcon,
     ethernodeBlack,
     ethernodeName,
     ethernodeLogo,
@@ -32,8 +37,11 @@ const icons  = {
     discordLogo,
     githubLogo,
     mapImg,
-    protoType,
-    network
+    networkIcon, 
+    headerDark,
+    logoDark,
+    netWorkEarth,
+    darkHeader
 };
 
 export default icons;

@@ -18,10 +18,10 @@ const HomeCards = () => (
       <Row>
         <Col sm={4}>
           <Card>
-            <CardHeader title="Ethernode" />
+            <CardHeader title="EnKeep" />
             <CardContent>
               <img
-                src={icons.ethernodeLogo}
+                src={icons.enKeepIcon}
                 alt="ethernode icon"
                 style={{ maxWidth: "8em" }}
               />
@@ -79,7 +79,7 @@ const HomeCards = () => (
             <CardHeader title="EnConnect" />
             <CardContent>
               <img
-                src={icons.enconnectLogo}
+                src={icons.netWorkEarth}
                 alt="enConnect icon"
                 style={{ maxWidth: "8em" }}
               />

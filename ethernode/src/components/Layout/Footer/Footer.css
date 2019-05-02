@@ -2,6 +2,7 @@
     display: block;
     background-color: white;
     max-width: 100%;
+    background-image: url("../../../assets/")
 }
 
 #footer a:visited {
@@ -26,11 +27,15 @@
 
 .footer-logo {
     margin-top: 2.5em;
-    margin-right: em;
-    width: 4em;
+    margin-right: 2.5em;
+    width: 16em;
+    margin-bottom: 2.3em
 }
-  
+.footer-net {
+    width: 27em;
+
+}
 .social-icon {
-    width: 2em;
+    width: 1.8em;
     margin: 1.5em 1em 0 1em;
 }

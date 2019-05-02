@@ -6,6 +6,7 @@ header {
     right: 0;
     margin: 1em;
 
+
 }
 
 .menu-header {
@@ -15,7 +16,9 @@ header {
 }
 
 .logo {
-    width: 6em;
+    width: 15em;
+    padding-bottom: 1em;
+    padding-top: 1em
 }
   
 h1 {

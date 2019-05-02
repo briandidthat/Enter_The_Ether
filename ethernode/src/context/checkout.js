@@ -1,11 +1,12 @@
 import React, { useReducer } from "react";
 import findIndex from "lodash/findIndex";
-import {initialState} from "../utils/constants"
+import { initialState } from "../utils/constants";
 
 export const CheckoutContext = React.createContext();
 
 export function CheckoutProvider(props) {
   const steps = ["Shipping address", "Payment details", "Review your order"];
+
   //Set Global State based on user input
   const [state, setState] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
