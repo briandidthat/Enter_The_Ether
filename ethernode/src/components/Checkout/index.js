@@ -13,7 +13,7 @@ import PaymentDetails from "./PaymentDetails";
 import Confirm from "./Confirm";
 import { CheckoutContext } from "../../context/checkout";
 import API from "../../utils/API";
-import { signUpInfo, register } from "../../utils/constants";
+import { signUpInfo, checkoutInfo } from "../../utils/constants";
 
 function Checkout(props) {
   const { state, steps, getTotal } = useContext(CheckoutContext);
@@ -30,9 +30,9 @@ function Checkout(props) {
   async function handleSubmit() {
     let user = await signUpInfo(state);
     let register = await API.register(user);
-    //let userData = await checkoutInfo(state)
-    //let checkout = await API.checkout(userData)
-    console.log(state);
+    let userData = await checkoutInfo(state)
+    let checkout = await API.newOrder(userData)
+    console.log(register, checkout);
     handleNext();
   }
 

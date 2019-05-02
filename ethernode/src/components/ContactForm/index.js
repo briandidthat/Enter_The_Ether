@@ -85,7 +85,6 @@ const ContactForm = () => {
           </Col>
         </Row>
       </Container>
-      )}
       <br />
     </React.Fragment>
   );
@@ -93,7 +92,7 @@ const ContactForm = () => {
 
 const styles = {
   card: {
-    background: "#B1C4B1",
+    background: "white",
     justifyContent: "center"
   }
 };

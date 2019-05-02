@@ -13,7 +13,7 @@ const Header = () => (
         <Row>
           <Col lg={12}>
             <div className="header">
-              <img src={icons.ethernodeLogo} alt="EtherNode Logo" className="logo"></img>
+              <img src={icons.darkHeader} alt="EtherNode Logo" className="logo"></img>
             </div>
           <Nav />
         </Col>
