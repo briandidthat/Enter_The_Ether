@@ -5,13 +5,15 @@ import React from "react";
 const About = () => (
   <div>
     <h4>
-      Ethernode is proudly built by a passionate team.
+      At Ethernode we're developing products and services in the pursuit
       <br />
-      We believe in trust minimization and eliminating 3rd parties.
+      of enabling equal access to information, and freedom from digital
       <br />
-      It doesn't matter if your a developer, or if it's your first experience.
+      censorship for users around the world, through decentralized public
       <br />
-      We do the heavy lifting, you do the rest.
+      blockchains networks. Our Purpose is connectivity, connecting people 
+      <br />
+      to these networks and bridging the gaps between developers and users.
     </h4>
     <br />
   </div>

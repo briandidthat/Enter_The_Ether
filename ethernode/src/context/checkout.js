@@ -32,7 +32,7 @@ export function CheckoutProvider(props) {
   const getTotal = cart => {
     let total = 0;
     cart.map(item => {
-      let numeric = parseInt(item.itemCost);
+      let numeric = parseFloat(item.itemCost);
       total = numeric + total;
       setState({ orderTotal: total });
       return total;

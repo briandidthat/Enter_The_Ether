@@ -21,7 +21,7 @@ export const initialState = {
   orderDate: today,
   userPassword: "",
   cart: [],
-  salesTax: "",
+  salesTax: "2",
   payType: "Credit Card",
   billingAddress1: "",
   billingAddress2: "",
@@ -50,10 +50,10 @@ export const checkoutInfo = user => {
       user.cardNumber,
       user.expiration,
       user.cvv,
-      "",
+      "none",
       user.userFirst,
       user.userLast,
-      "",
+      "none",
       user.shippingAddress1,
       user.shippingCity,
       user.shippingState,
@@ -63,7 +63,7 @@ export const checkoutInfo = user => {
       user.salesTax,
       user.userFirst,
       user.userLast,
-      "",
+      "none",
       user.billingAddress1,
       user.billingCity,
       user.BillingState,
@@ -73,7 +73,7 @@ export const checkoutInfo = user => {
       "USPS Ground",
       "USPS Priority Ground",
       "AUTHONLYTRANSACTION",
-      user.orderTotal
+      450
     ],
     id: 200
   };
