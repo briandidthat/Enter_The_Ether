@@ -2,7 +2,7 @@ import React from "react";
 import { CheckoutProvider } from "./checkout";
 import { ContactProvider } from "./contact";
 
-//This... is the royal motherfucker. Grabs all context(s) and makes one shallow copy.
+// Grabs all context(s) and makes one shallow copy.
 function ProviderComposer({ contexts, children }) {
   return contexts.reduceRight(
     (kids, parent) =>
